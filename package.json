@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "pandoc": "pandoc -o docs/index.html --template=shared/template.html docs/md/*.md",
+    "watch": "node shared/watch.js Tutorial-Workflow"
+  }
+}

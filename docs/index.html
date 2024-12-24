@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+<title>Boilerplate Tutorial</title>
+<link rel="stylesheet" href="../shared/styles.css">
+<link rel="stylesheet" href="../shared/media-queries.css">
+<link rel="stylesheet" href="../shared/prism/prism.css">
+
+<script defer src="../shared/prism/prism.js"></script>
+<script defer src="../shared/storage.js"></script>
+<script defer src="../shared/script.js"></script>
+</head>
+
+<body>
+<main id="main">
+<header>
+<h1>Boilerplate Tutorial</h1>
+<h3>(replace with your own content)</h3>
+<h4>December 2024</h4>
+</header>
+
+<section id="publishing-to-github" aria-labelledby="publishing-to-github" data-item="Publishing To GitHub">
+<h2>
+<a href="#publishing-to-github">Publishing To GitHub</a>
+</h2>
+<ol type="1">
+<li>Create a GitHub repository for this tutorial in the GitHub
+Organization that you created for this purpose. I’ll assume that this
+repository has the address:
+<code>https://MyTutorials.github.com/boilerplate-tutorial</code></li>
+<li>On your development computer, use
+<code>git remote add origin git@github.com:MyTutorials/boilerplate-tutorial.git</code>
+to connect this local repository with the remote GitHub repository</li>
+<li>Use <code>git push -u origin main</code> to push the Initial Commit
+of this local repository to your remote GitHub repository.</li>
+<li>Open the Settings tab in your remote GitHub repository page.</li>
+<li>In the Code and automation section in the left column, choose
+Pages</li>
+<li>In the Build and Deployment section of the Pages page, choose the
+<code>main</code> branch and the <code>docs/</code> folder and click
+Save to publish the site stored in the <code>docs/</code> folder.</li>
+</ol>
+<p>Your tutorial will be published at a URL like <a
+href="">https://MyTutorials.github.io/boilerplate-tutorial</a>. It may
+take a few minutes before your site goes live.</p>
+<details class="pivot" open>
+<summary>
+From Boilerplate to Personal Content
+</summary>
+<p>If all goes well, you should now find a short tutorial (that you did
+not write yourself) available for the world to see. Now the real work
+begins: working efficiently to write your own content.</p>
+</details>
+</section>
+<section id="personal-content" aria-labelledby="personal-content" data-item="Personal Content">
+<h2>
+<a href="#personal-content">Personal Content</a>
+</h2>
+<p>The content for this tutorial is stored in Markdown files inside the
+folder <code>docs/md/</code>. Edit these files and add to them to
+structure your tutorial.</p>
+<p>To convert these files to a single HTML file at
+<code>doc/index.html</code>, you need to run the command
+<code>npm run pandoc</code>. This was already done for you after you ran
+the command <code>npm run new</code> which created this tutorial.</p>
+<details class="note" open>
+<summary>
+Pandoc
+</summary>
+<p><a href="https://pandoc.org/">Pandoc</a> is a free-software document
+converter, which can convert documents between around 60 different file
+formats. The languages used to write and extend it are Haskel, Lua and
+Python. A NodeJS module called <code>pandoc</code> allows you to access
+its power through JavaScript.</p>
+</details>
+<h2 id="watching-for-changes-to-the-docsmd-files">Watching for changes
+to the <code>docs/md/</code> files</h2>
+<p>Before you start editing or adding to the files in
+<code>docs/md/</code>, you can run the command
+<code>npm run watch</code> in a Terminal window open at the root of this
+directory. This will start the <code>fb-watchman</code> node module,
+which will run <code>npm run pandoc</code> automatically for you:</p>
+<ul>
+<li>Whenever you save a modified <code>.md</code> file</li>
+<li>Whenever you add a new <code>.md</code> file to
+<code>docs/md/</code></li>
+<li>Whenever you delete or rename an existing <code>.md</code>
+file.</li>
+</ul>
+<details class="env" open>
+<summary>
+Viewing with Live Server
+</summary>
+<p>If you are working with Virtual Studio Code, you can install the
+extension <a
+href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live
+Server</a>, and use this to serve the page at
+<code>docs/index.html</code>. This will allow you to view the actual
+HTML output from your Markdown files in real time as you edit.</p>
+</details>
+</section>
+<section id="organizing-your-writing" aria-labelledby="organizing-your-writing" data-item="Organizing Your Writing">
+<h2>
+<a href="#organizing-your-writing">Organizing Your Writing</a>
+</h2>
+<ol type="1">
+<li>You are now ready to start writing your tutorial in Markdown files
+in the <code>docs/md/</code> folder.</li>
+<li>Use zero-padded numbering for your <code>.md</code> files (e.g.:
+“01-Getting-Started.md”, “02-First-steps.md”, …) to ensure that they are
+loaded in the correct order.</li>
+<li>For reasons associated with CSS sibling management, the very
+<em>first</em> <code>.md</code> file should have the <em>highest</em>
+initial number. That’s why the text for <code>99-Intro.md</code> appears
+first. All other files should be numbered in the usual way.</li>
+<li>Use the root of your new repository to contain the code and assets
+that demonstrate the finished version of your tutorial</li>
+<li>Push your repository to GitHub when the tutorial is ready to
+share.</li>
+</ol>
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+<p>This four-part tutorial is intended only to provide a demo of how the
+HTM-Elves workflow can simplify your life. For in-depth information on
+how to use shortcuts, keybindings and other time-saving techniques,
+visit the more detailed tutorials on the <a
+href="https://HTM-Elves.github.io">HTM-Elves website</a>.</p>
+<p><strong><em>Have fun!</em></strong></p>
+</section>
+<section id="intro" aria-labelledby="intro" data-item="Introduction">
+<h2>
+<a href="#intro">Introduction</a>
+</h2>
+<p><strong><em>Congratulations!</em></strong></p>
+<p>If this <code>index.html</code> page has opened in your browser, then
+your Markdown to HTML conversion process is working. If this is your
+first time using the HTM-Elves workflow, then your next step is to
+publish this tutorial, just as it is, on GitHub. When you have followed
+the process through to the end, the workflow will become clear.</p>
+<p>This tutorial will explain how to publish this boilerplate tutorial,
+unchanged, on GitHub.</p>
+<p><img src="https://htm-elves.github.io/shared/nodoc.webp" /></p>
+<details class="tip" open>
+<summary>
+Temporary Content
+</summary>
+<p>You can delete this tutorial from GitHub later, after you have
+understood the publishing process. Alternatively, you can replace all
+the content in the Markdown files in the <code>docs/md/</code> directory
+with your own files and content, and publish it as a permanent
+tutorial.</p>
+</details>
+<h3 id="the-story-so-far">The Story So Far</h3>
+<p>In the explanation that follows, I will imagine that you:</p>
+<ol type="1">
+<li>Created a GitHub Organization called <code>MyTutorials</code></li>
+<li>Forked the HTM-Elves repository to your Organization, and called
+your fork <code>MyTutorials.github.io</code></li>
+<li>Cloned <code>MyTutorials.github.io</code> to your development
+computer</li>
+<li>Ran <code>npm run new</code> in a Terminal window open at the root
+of your <code>MyTutorials.github.io</code> directory.</li>
+</ol>
+<p>I also imagine that you will use the name
+<code>boilerplate-tutorial</code> as the name of the GitHub repository
+that you will create for this tutorial inside your Organization.</p>
+<details class="pivot" open>
+<summary>
+Customizing the Tutorial Names
+</summary>
+<p>Of course, you chose your own names for your Organization and for
+your tutorial repository. In the instructions that follow, please
+replace <code>MyTutorials.github.io</code> and
+<code>boilerplate-tutorial</code> with the actual names that you have
+chosen.</p>
+</details>
+</section>
+
+<div class="spacer"></div>
+<footer id="footer">
+<button type="button" id="previous" disabled>&lt;</button>
+<span id="previous-name"></span>
+<span class="spacer"></span>
+<button type="button" id="next">&gt;</button>
+<span id="next-name"></span>
+</footer>
+</main>
+
+<nav
+id="menu"
+class="open"
+>
+<div class="paging">
+<label
+title="Split into sections"
+>
+<img src="../shared/svg/pages.svg" alt="pages">
+<input
+type="radio"
+name="paging"
+id="pages"
+checked
+>
+</label>
+<label
+title="Show as a single page"
+>
+<img src="../shared/svg/scroll.svg" alt="scroll">
+<input
+type="radio"
+name="paging"
+id="scroll"
+>
+</label>
+</div>
+<svg
+id="menu-icon"
+viewBox="0 0 100 100"
+preserveAspectRatio="xMidYMid meet"
+>
+<g
+class="menu"
+stroke-width="20"
+stroke-linecap="round"
+>
+<path
+d="M5,20 L5,80 H95 L95,20 z"
+fill="#0000"
+stroke="none"
+/>
+<line
+x1="15"
+y1="20"
+x2="85"
+y2="20"
+/>
+<line
+x1="15"
+y1="50"
+x2="85"
+y2="50"
+/>
+<line
+x1="15"
+y1="80"
+x2="85"
+y2="80"
+/>
+</g>
+</svg>
+
+<ul id="menu-items">
+</ul>
+
+<div id="repo">
+<a
+href="https://github.com/MERNCraft/boilerplate-tutorial/issues/new"
+>
+Feedback
+</a>
+
+<a
+class="repo"
+href="https://github.com/MERNCraft/boilerplate-tutorial"
+>
+<img src="../shared/svg/github.svg" alt="github logo">
+<span>GitHub repository</span>
+</a>
+</div>
+</nav>
+</body>
+</html>
