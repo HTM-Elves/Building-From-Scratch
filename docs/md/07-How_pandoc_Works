@@ -1,0 +1,31 @@
+# How Pandoc Works #
+
+Pandoc is a program that can convert documents from one format to another. For instance, it can convert a PDF file into an editable Word document, or an HTML page into a standalone PDF document, and so on. You can find a full list of all the file formats pandoc can work with on [pandoc's home page](https://pandoc.org/). I count around 60 different formats.
+
+How does it do this?
+
+In order to convert to a different format, pandoc:
+1. Reads a document in one format
+2. Converts the contents of this source document into pandoc's own intermediate format
+3. Converts from this intermediate format into the output format.
+
+This means that it needs:
+* A reader for each format
+* A writer for each format
+* A way to connect any reader to any writer.
+
+The intermediate file format is called the [`abstract syntax tree`](https://pandoc.org/MANUAL.html). From now on, I'll call it the AST, for short.
+
+In order to convert the string `$title$` in your `input.md` file to the value of the `title` YAML variable, you are going to have to make changes to the AST. Pandoc will convert the input source to AST, you will customize the AST, then pandoc will convert your customized AST into HTML.
+
+After pandoc has converted the input format to its AST format, it steps through the AST data, entry by entry, and says: "Does anybody want to change this before I start converting to the output format?"
+
+> You can think of this like when one friend asks you to take a necklace made of beads to give to a second friend. Your first friend shows you the beads one by one, and says: "Do you want to change this? Remove it? Add something? Write something on the gift card?"
+> 
+> You can make all the changes that you want, then you take the modified necklace deliver it to your second friend, who uses it exactly the way they want to. This may be very different from the way your first friend intended. Hey, the necklace is in a new format after all.
+>
+> In other words, you get to intercept the conversion process, and add your own personal touch.
+
+Before you can make any changes to what's in the AST "necklace", it will be good to take a good look at it.
+
+

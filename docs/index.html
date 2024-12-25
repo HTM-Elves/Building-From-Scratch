@@ -6,7 +6,7 @@
 name="viewport"
 content="width=device-width, initial-scale=1.0"
 >
-<title>Boilerplate Tutorial</title>
+<title></title>
 <link rel="stylesheet" href="../shared/styles.css">
 <link rel="stylesheet" href="../shared/media-queries.css">
 <link rel="stylesheet" href="../shared/prism/prism.css">
@@ -19,165 +19,1970 @@ content="width=device-width, initial-scale=1.0"
 <body>
 <main id="main">
 <header>
-<h1>Boilerplate Tutorial</h1>
-<h3>(replace with your own content)</h3>
-<h4>December 2024</h4>
+<h1></h1>
+<h3></h3>
+<h4></h4>
 </header>
 
-<section id="publishing-to-github" aria-labelledby="publishing-to-github" data-item="Publishing To GitHub">
+<!-- Proof of concept -->
+<section id="proof-of-concept" data-item="Proof Of Concept">
+<a href="proof-of-concept">
 <h2>
-<a href="#publishing-to-github">Publishing To GitHub</a>
+Proof Of Concept
 </h2>
+<p></a><br />
+You can start by creating a very simple Markdown document, and seeing
+how to convert it to HTML with pandoc.</p>
 <ol type="1">
-<li>Create a GitHub repository for this tutorial in the GitHub
-Organization that you created for this purpose. I’ll assume that this
-repository has the address:
-<code>https://MyTutorials.github.com/boilerplate-tutorial</code></li>
-<li>On your development computer, use
-<code>git remote add origin git@github.com:MyTutorials/boilerplate-tutorial.git</code>
-to connect this local repository with the remote GitHub repository</li>
-<li>Use <code>git push -u origin main</code> to push the Initial Commit
-of this local repository to your remote GitHub repository.</li>
-<li>Open the Settings tab in your remote GitHub repository page.</li>
-<li>In the Code and automation section in the left column, choose
-Pages</li>
-<li>In the Build and Deployment section of the Pages page, choose the
-<code>main</code> branch and the <code>docs/</code> folder and click
-Save to publish the site stored in the <code>docs/</code> folder.</li>
+<li>Create a new directory to contain your tutorial-writing project. In
+the following text, I’ll assume that you called this project directory
+<code>Workflow</code>.</li>
+<li>Create a new file in this directory, called
+<code>input.md</code></li>
+<li>Write some Markdown text in <code>input.md</code>. For example,
+this…</li>
 </ol>
-<p>Your tutorial will be published at a URL like <a
-href="">https://MyTutorials.github.io/boilerplate-tutorial</a>. It may
-take a few minutes before your site goes live.</p>
-<details class="pivot" open>
-<summary>
-From Boilerplate to Personal Content
-</summary>
-<p>If all goes well, you should now find a short tutorial (that you did
-not write yourself) available for the world to see. Now the real work
-begins: working efficiently to write your own content.</p>
-</details>
-</section>
-<section id="personal-content" aria-labelledby="personal-content" data-item="Personal Content">
-<h2>
-<a href="#personal-content">Personal Content</a>
-</h2>
-<p>The content for this tutorial is stored in Markdown files inside the
-folder <code>docs/md/</code>. Edit these files and add to them to
-structure your tutorial.</p>
-<p>To convert these files to a single HTML file at
-<code>doc/index.html</code>, you need to run the command
-<code>npm run pandoc</code>. This was already done for you after you ran
-the command <code>npm run new</code> which created this tutorial.</p>
-<details class="note" open>
-<summary>
-Pandoc
-</summary>
-<p><a href="https://pandoc.org/">Pandoc</a> is a free-software document
-converter, which can convert documents between around 60 different file
-formats. The languages used to write and extend it are Haskel, Lua and
-Python. A NodeJS module called <code>pandoc</code> allows you to access
-its power through JavaScript.</p>
-</details>
-<h2 id="watching-for-changes-to-the-docsmd-files">Watching for changes
-to the <code>docs/md/</code> files</h2>
-<p>Before you start editing or adding to the files in
-<code>docs/md/</code>, you can run the command
-<code>npm run watch</code> in a Terminal window open at the root of this
-directory. This will start the <code>fb-watchman</code> node module,
-which will run <code>npm run pandoc</code> automatically for you:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># First Steps</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Use pandoc to convert this markdown file to HTML.</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A link which does nothing</span><span class="co">]()</span></span></code></pre></div>
+<p>File FA0. … will create a level 1 header, a line of text, and an
+anchor link which leads nowhere.</p>
+<blockquote>
+<p>It’s good to work directly on the Command Line. Here’s a single
+command that you can use in a Terminal window, which will do all this
+for you:</p>
+<pre class="bash-#"><code>mkdir -p Workflow &amp;&amp; cd Workflow &amp;&amp; cat &gt; input.md &lt;&lt;EOF
+# First Steps
+Use pandoc to convert this markdown file to HTML.
+
+[A link which does nothing]()
+EOF</code></pre>
+<p>Console CAA.</p>
+</blockquote>
+<ol type="1">
+<li><a href="https://pandoc.org/installing.html">Install pandoc</a> on
+your computer, and check that it is working.</li>
+<li>In a Terminal window that is open on your <code>Workflow</code>
+directory, run this command:</li>
+</ol>
+<pre class="bash-#"><code>pandoc -o index.html input.md</code></pre>
+<p>Console CAB.</p>
 <ul>
-<li>Whenever you save a modified <code>.md</code> file</li>
-<li>Whenever you add a new <code>.md</code> file to
-<code>docs/md/</code></li>
-<li>Whenever you delete or rename an existing <code>.md</code>
-file.</li>
+<li>The <code>-o</code> flag indicates that the next argument will be
+the (relative path to) the file where pandoc will generate the converted
+HTML</li>
+<li>The final argument (<code>input.md</code>) tells pandoc which file
+to convert.</li>
 </ul>
-<details class="env" open>
-<summary>
-Viewing with Live Server
-</summary>
-<p>If you are working with Virtual Studio Code, you can install the
-extension <a
-href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">Live
-Server</a>, and use this to serve the page at
-<code>docs/index.html</code>. This will allow you to view the actual
-HTML output from your Markdown files in real time as you edit.</p>
-</details>
-</section>
-<section id="organizing-your-writing" aria-labelledby="organizing-your-writing" data-item="Organizing Your Writing">
-<h2>
-<a href="#organizing-your-writing">Organizing Your Writing</a>
-</h2>
-<ol type="1">
-<li>You are now ready to start writing your tutorial in Markdown files
-in the <code>docs/md/</code> folder.</li>
-<li>Use zero-padded numbering for your <code>.md</code> files (e.g.:
-“01-Getting-Started.md”, “02-First-steps.md”, …) to ensure that they are
-loaded in the correct order.</li>
-<li>For reasons associated with CSS sibling management, the very
-<em>first</em> <code>.md</code> file should have the <em>highest</em>
-initial number. That’s why the text for <code>99-Intro.md</code> appears
-first. All other files should be numbered in the usual way.</li>
-<li>Use the root of your new repository to contain the code and assets
-that demonstrate the finished version of your tutorial</li>
-<li>Push your repository to GitHub when the tutorial is ready to
-share.</li>
+<p>By default, pandoc will use the extensions (<code>.html</code> and
+<code>.md</code>, in this case) to choose which file format to convert
+to and from.</p>
+<ol start="6" type="1">
+<li>Press the Enter key to execute this command.</li>
 </ol>
-<h2 id="where-to-go-from-here">Where to go from here</h2>
-<p>This four-part tutorial is intended only to provide a demo of how the
-HTM-Elves workflow can simplify your life. For in-depth information on
-how to use shortcuts, keybindings and other time-saving techniques,
-visit the more detailed tutorials on the <a
-href="https://HTM-Elves.github.io">HTM-Elves website</a>.</p>
-<p><strong><em>Have fun!</em></strong></p>
-</section>
-<section id="intro" aria-labelledby="intro" data-item="Introduction">
-<h2>
-<a href="#intro">Introduction</a>
-</h2>
-<p><strong><em>Congratulations!</em></strong></p>
-<p>If this <code>index.html</code> page has opened in your browser, then
-your Markdown to HTML conversion process is working. If this is your
-first time using the HTM-Elves workflow, then your next step is to
-publish this tutorial, just as it is, on GitHub. When you have followed
-the process through to the end, the workflow will become clear.</p>
-<p>This tutorial will explain how to publish this boilerplate tutorial,
-unchanged, on GitHub.</p>
-<p><img src="https://htm-elves.github.io/shared/nodoc.webp" /></p>
-<details class="tip" open>
-<summary>
-Temporary Content
-</summary>
-<p>You can delete this tutorial from GitHub later, after you have
-understood the publishing process. Alternatively, you can replace all
-the content in the Markdown files in the <code>docs/md/</code> directory
-with your own files and content, and publish it as a permanent
-tutorial.</p>
-</details>
-<h3 id="the-story-so-far">The Story So Far</h3>
-<p>In the explanation that follows, I will imagine that you:</p>
-<ol type="1">
-<li>Created a GitHub Organization called <code>MyTutorials</code></li>
-<li>Forked the HTM-Elves repository to your Organization, and called
-your fork <code>MyTutorials.github.io</code></li>
-<li>Cloned <code>MyTutorials.github.io</code> to your development
-computer</li>
-<li>Ran <code>npm run new</code> in a Terminal window open at the root
-of your <code>MyTutorials.github.io</code> directory.</li>
+<p>You should see a new file created at
+<code>Workflow/index.html</code>. Here’s what its contents should look
+like:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;first-steps&quot;</span><span class="dt">&gt;</span>First Steps<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Use pandoc to convert this markdown file to HTML.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;&quot;</span><span class="dt">&gt;</span>A link which does nothing<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>File FAA.</p>
+<ol start="7" type="1">
+<li>Open this file in your browser.</li>
 </ol>
-<p>I also imagine that you will use the name
-<code>boilerplate-tutorial</code> as the name of the GitHub repository
-that you will create for this tutorial inside your Organization.</p>
-<details class="pivot" open>
-<summary>
-Customizing the Tutorial Names
-</summary>
-<p>Of course, you chose your own names for your Organization and for
-your tutorial repository. In the instructions that follow, please
-replace <code>MyTutorials.github.io</code> and
-<code>boilerplate-tutorial</code> with the actual names that you have
-chosen.</p>
-</details>
+<p><img src="images/firstStep.webp" alt="First Steps" /> Figure IAA.</p>
+<p>It looks like a web page, with a header, some text and a link.</p>
+<ol start="8" type="1">
+<li>Out of interest, open the original <code>input.md</code> file in
+your browser. You should see raw text, with no styling for the header
+and the link.</li>
+</ol>
+<p><img src="images/mdInBrowser.webp" alt="Markdown in browser" />
+Figure IAB.</p>
+<blockquote>
+<p>The <code>index.html</code> file is not good HTML. The file does not
+have a <code>DOCTYPE</code> declaration, a <code>&lt;head&gt;</code> or
+a <code>&lt;body&gt;</code> element, and other basic boilerplate is
+missing too.</p>
+<p>The next step will be to provide a full HTML template to contain the
+converted MD file.</p>
+</blockquote>
+</section>
+<section id="html-template" data-item="An HTML Template">
+<h2>
+An HTML Template
+</h2>
+<p>Here’s a basic template that you can use:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;en&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ot">    name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ot">    content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ot">  </span><span class="dt">&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>$title$<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  $body$</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>File FAB.</p>
+<p>It contains two variables that pandoc will recognize:
+<code>$title$</code> and <code>$body$</code>. When you give pandoc the
+right command, it will replace the <code>$body$</code> variable with the
+HTML that it created during the conversion process. For now, no value is
+defined for the <code>$title$</code> variable. You’ll see how to work
+with that in the next step.</p>
+<ol type="1">
+<li>In your <code>Workflow/</code> directory, create a new file called
+<code>template.html</code></li>
+<li>Paste the template text from Listing AAA into it</li>
+<li>In a Terminal window that is open on your <code>Workflow</code>
+directory, run this command:</li>
+</ol>
+<pre class="bash-#"><code>pandoc -o index.html --template=template.html input.md</code></pre>
+<p>Console CAC.</p>
+<p>Here, you have added the <code>--template=template.html</code>
+directive, which tells pandoc what file to use as the HTML template for
+the output.</p>
+<ol start="4" type="1">
+<li>Look at <code>Workflow/index.html</code>.</li>
+</ol>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;en&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ot">    name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ot">    content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ot">  </span><span class="dt">&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;first-steps&quot;</span><span class="dt">&gt;</span>First Steps<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Use pandoc to convert this markdown file to HTML.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;&quot;</span><span class="dt">&gt;</span>A link which does nothing<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>File FAC.</p>
+<p>You should see that the <code>$body$</code> variable has been
+replaced by the out put that you saw in the previous section. However,
+the <code>&lt;title&gt;&lt;/title&gt;</code> is empty. The
+<code>$title$</code> variable has been replaced by an empty string.</p>
+<blockquote>
+<p>In the next step, you will see how to create a <a
+href="https://www.cloudbees.com/blog/yaml-tutorial-everything-you-need-get-started">YAML</a>
+block in your <code>input.md</code> file that will tell pandoc what
+value to use for <code>$title$</code>, and any other variables that you
+might choose to use.</p>
+</blockquote>
+</section>
+<section id="yaml" data-item="Variables with YAML">
+<h2>
+Variables with YAML
+</h2>
+<p>When YAML was first created, the name was originally an acronym for
+“Yet Another Markup Language”. Over time, it started being used more for
+data serialization than for markup, so now, officially, the name stands
+for “YAML Ain’t Markup Language”.</p>
+<blockquote>
+<p>The inspiration for YAML comes from Python, where whitespace at the
+beginning of a line has a meaning. For this reason, you should be
+careful not to leave white spaces at the beginning of a line, unless you
+know what you are doing. In this tutorial, I’ll keep all text in YAML
+blocks left-aligned.</p>
+</blockquote>
+<p>Here’s how you can edit your <code>input.md</code> file to tell
+pandoc what value you want to use in place of the <code>$title$</code>
+variable in <code>template.html</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>---</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>title: First Dots</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>...<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;&lt;</span><span class="kw">i</span><span class="dt">&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># First Steps</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>Use pandoc to convert this markdown file to HTML.</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A link which does nothing</span><span class="co">]()</span><span class="dt">&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>File FAD.</p>
+<p>The three <code>---</code> dashes at the start say: “YAML block
+starts here”. The three <code>...</code> at the end say: “That’s the end
+of the YAML block”.</p>
+<p>Inside the YAML block, you write a variable name (without enclosing
+<code>$</code> signs), followed by a <code>:</code> colon. The rest of
+the line represents the value of the variable.</p>
+<p>In other words, this block…</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> First Dots</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">...</span></span></code></pre></div>
+<p>File FAE.</p>
+<p>… says “a variable called <code>title</code> will have the value
+‘First Dots’”.</p>
+<blockquote>
+<p>I’ve used <code>First Dots</code> to remind you to end the block with
+dots.</p>
+</blockquote>
+<ol type="1">
+<li>Edit your <code>input.md</code> file so that it matches File
+FAD.</li>
+<li>In the Terminal window that is open on your <code>Workflow</code>
+directory, run this command again):</li>
+</ol>
+<pre class="bash-#"><code>pandoc -o index.html --template=template.html input.md</code></pre>
+<p>Console CAD.</p>
+<blockquote>
+<p>Tip: This is exactly the same as the last command you ran in the
+Terminal. When the Terminal window is active, you can press the Up arrow
+at the bottom right of your keyboard to step backwards through the
+history of your commands. Press the Enter key when you reach the command
+you want.</p>
+<p>You can also run the command <code>history</code> in your Terminal to
+see a numbered list of all your recent commands. The command
+<code>history X</code> (where <code>X</code> is the index number of an
+earlier command) will repeat that command.</p>
+<p>It’s good to know shortcuts that allow you to do less typing.</p>
+</blockquote>
+<ol start="3" type="1">
+<li>Look at the <code>index.html</code> file. You should see that the
+<code>&lt;title&gt;</code> element now contains the value you defined in
+the YAML block.</li>
+</ol>
+<pre class="html-#"><code>&lt;i&gt;&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;s&gt;&lt;!-- Some lines skipped --&gt;&lt;/s&gt;
+  &lt;title&gt;First Dots&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;&lt;/i&gt;&lt;b&gt;
+  &lt;h1 id=&quot;first-steps&quot;&gt;First Steps&lt;/h1&gt;&lt;/b&gt;&lt;i&gt;
+  &lt;s&gt;&lt;!-- More lines skipped --&gt;&lt;/s&gt;
+&lt;/body&gt;
+&lt;/html&gt;&lt;/i&gt;</code></pre>
+<p>File FAD.</p>
+<ol start="4" type="1">
+<li>Refresh the file in your browser. You should see that the browser
+tab has the title that you chose.</li>
+</ol>
+<p><img src="images/title.webp" alt="Title set" /> Figure IAC.</p>
+<blockquote>
+<p>Perhaps you want the text of the <code>&lt;h1&gt;</code> element to
+match the <code>&lt;title&gt;</code>? You might think that pandoc is
+smart enough to allow you to use the <code>$title$</code> variable
+inside the <code>input.md</code> file itself.</p>
+<p>SPOILER: pandoc isn’t that smart. At least, not in that way.</p>
+</blockquote>
+</section>
+<section id="$variable$-fail" data-item="$variable$ fails in MD">
+<h2>
+<code>$variable$</code> names fail in Markdown
+</h2>
+<p>To test how pandoc treats a string like <code>$title$</code> when it
+is part of the body of the Markdown document…</p>
+<ol type="1">
+<li>Edit your <code>Workflow/input.md</code> file so that it matches
+File FAE below. (Replace “# First Steps” with
+<code># $title$</code>.)</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode md"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="dt">&gt;</span>---</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>title: First Dots</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># &lt;/i&gt;&lt;b&gt;$title$&lt;/b&gt;&lt;i&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>Use pandoc to convert this markdown file to HTML.</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A link which does nothing</span><span class="co">]()</span><span class="dt">&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>File FAE.</p>
+<ol start="2" type="1">
+<li>In the Terminal window that is open on your <code>Workflow</code>
+directory, run the same command again (Up arrow + Enter):</li>
+</ol>
+<pre class="bash-#"><code>pandoc -o index.html --template=template.html input.md</code></pre>
+<p>Console CAE.</p>
+<ol start="3" type="1">
+<li>Look at what has happened in <code>Workflow/index.html</code>. The
+<code>h1</code> title has been treated to a lot of
+<code>&lt;em&gt;</code> tags and a <code>"math inline"</code> class.
+This is not what you wanted.</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">s</span><span class="dt">&gt;</span><span class="co">&lt;!-- Some lines skipped --&gt;</span><span class="dt">&lt;/</span><span class="kw">s</span><span class="dt">&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;title&quot;</span><span class="dt">&gt;&lt;</span><span class="kw">span</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ot">  class</span><span class="op">=</span><span class="st">&quot;math inline&quot;</span><span class="dt">&gt;&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>t<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>i<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>t<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>l<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;&lt;</span><span class="kw">em</span><span class="dt">&gt;</span>e<span class="dt">&lt;/</span><span class="kw">em</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">s</span><span class="dt">&gt;</span><span class="co">&lt;!-- More lines skipped --&gt;</span><span class="dt">&lt;/</span><span class="kw">s</span><span class="dt">&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+<blockquote>
+<p>The <a
+href="https://pandoc.org/chunkedhtml-demo/8.13-math.html">official
+pandoc documentation</a> explains:</p>
+<hr />
+<p>Anything between two $ characters will be treated as TeX math.<br />
+…<br />
+If for some reason you need to enclose text in literal $ characters,
+backslash-escape them and they won’t be treated as math delimiters.</p>
+</blockquote>
+<p>So what happens if you use <code>\$</code> instead of
+<code>$</code>?</p>
+<ol start="4" type="1">
+<li>Edit your <code>Workflow/input.md</code> file as shown in File FAF
+below, and see:</li>
+</ol>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode md"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="dt">&gt;</span>---</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>title: First Dots</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># &lt;/i&gt;&lt;b&gt;\$&lt;/b&gt;&lt;i&gt;title&lt;/i&gt;&lt;b&gt;\$&lt;/b&gt;&lt;i&gt;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>Use pandoc to convert this markdown file to HTML.</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A link which does nothing</span><span class="co">]()</span><span class="dt">&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>File FAF.</p>
+<ol start="5" type="1">
+<li>In the Terminal window that is open on your <code>Workflow</code>
+directory, run the same command again (Up arrow + Enter):</li>
+</ol>
+<pre class="bash-#"><code>pandoc -o index.html --template=template.html input.md</code></pre>
+<p>Console CAF.</p>
+<ol start="7" type="1">
+<li>Look at what has happened in <code>Workflow/index.html</code>.
+There’s no hint of <code>&lt;em&gt;</code> tags or class names now. The
+<code>h1</code> title now shows… the raw string <code>$title$</code>.
+Pandoc has not used the value of the <code>title</code> variable from
+the YAML block.</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="dt">&gt;&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">s</span><span class="dt">&gt;</span><span class="co">&lt;!-- Some lines skipped --&gt;</span><span class="dt">&lt;/</span><span class="kw">s</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;title&quot;</span><span class="dt">&gt;</span>$title$<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="dt">&gt;&lt;</span><span class="kw">s</span><span class="dt">&gt;</span><span class="co">&lt;!-- More lines skipped --&gt;</span><span class="dt">&lt;/</span><span class="kw">s</span><span class="dt">&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Pandoc has simply understood that <code>\$title\$</code> should be
+treated as a string with escaped <code>$</code> dollar signs, but it
+hasn’t recognized it as a variable name.</p>
+<blockquote>
+<p>The next step will be to create a <em>filter</em> which will tell
+pandoc that you want any word between two <code>$</code> characters to
+be treated as a variable.</p>
+</blockquote>
+</section>
+<section id="installations" data-item="Installations">
+<h2>
+Installing NodeJS, <code>npm</code> and <code>pandoc-filter</code>
+</h2>
+<p>When you ask a browser to do anything more complex than displaying a
+web page and its contents, a programming language called JavaScript will
+be at work. NodeJS is a standalone program that runs JavaScript code in
+the same way that JavaScript is run in the Google Chrome browser.</p>
+<p>Basically, NodeJS is the programming-language part of Google Chrome.
+However, as a standalone program, it has additional features. For
+instance, it can read and write directly from your computer’s hard disk,
+and it can run <em>node modules</em> written in JavaScript, which can
+provide tools for specific jobs.</p>
+<blockquote>
+<p>Node modules are also known as Node packages. I will use both terms
+with the same meaning in this tutorial.</p>
+</blockquote>
+<p>You can think of NodeJS like a food mixer which has the power to turn
+an drive shaft, and node modules as the different attachments that you
+can attach to the drive shaft, to allow you to whisk eggs or chop up
+carrots or knead bread dough.</p>
+<p>Before you can continue, you are going to need to:</p>
+<ol type="1">
+<li><a
+href="(https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)">Install
+NodeJS</a> on your computer. The best way to do this is with Node
+Version Manager (NVM)</li>
+<li><a
+href="https://docs.npmjs.com/downloading-and-installing-node-js-and-npm">Install
+a program called Node Package Manager</a> (or more precisely <a
+href="%5BNpm%5D(https://www.npmjs.com/package/npm#user-content-faq-on-branding)"><code>npm</code></a>).</li>
+<li>Use <code>npm</code> to <a
+href="https://www.npmjs.com/package/pandoc-filter">install a package
+called <code>pandoc-filter</code></a>. In a Terminal window open on your
+<code>Workflow/</code> directory, run this command:</li>
+</ol>
+<pre class="bash-#"><code>npm install pandoc-filter</code></pre>
+<p>You should see that a new folder called <code>node_modules</code> has
+been created, and two new files called <code>package.json</code> and
+<code>package-lock.json</code> have appeared. The contents of your
+<code>Workflow/</code> directory should now look something like
+this:</p>
+<pre class="console-#"><code>.
+├── input.md
+├── node_modules
+│   ├── get-stdin/
+│   └── pandoc-filter/
+├── index.html
+├── package-lock.json
+├── package.json
+└── template.html</code></pre>
+If that’s what you see, then you are ready to continue.
+</section>
+<section id="nodejs-filter" data-item="A NodeJS Filter">
+<h2>
+A NodeJS Filter
+</h2>
+<p>To look into the box where pandoc has created its AST version of the
+<code>input.md</code> file:</p>
+<ol type="1">
+<li>Create a new file called <code>filter.js</code></li>
+<li>Paste the text from Listing LAF into it.</li>
+</ol>
+<p>I’ll describe what the code does, step-by-step, below.</p>
+<blockquote>
+<p>It’s not important how the <code>// LOGGING</code> section works
+though, so you can skip that explanation if your want. You often use
+tools that just work (like your smartphone or your microwave), without
+knowing exactly how they work. You can think of them as “black boxes”
+where all that matters is the input and the output, but not what happens
+inside. You can think of the logging process as just another black
+box.</p>
+</blockquote>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env node</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> pandoc <span class="op">=</span> <span class="pp">require</span>(<span class="st">&quot;pandoc-filter&quot;</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>pandoc<span class="op">.</span><span class="fu">stdio</span>(action)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">action</span>() {</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log</span>(<span class="kw">arguments</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">// LOGGING //</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> { createWriteStream } <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;fs&#39;</span>)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> logger <span class="op">=</span> <span class="kw">new</span> <span class="bu">console</span><span class="op">.</span><span class="fu">Console</span>(<span class="fu">createWriteStream</span>(<span class="st">&quot;filter.log&quot;</span>))<span class="op">;</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">log</span>(args) {</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> [{<span class="dt">t</span><span class="op">:</span> type<span class="op">,</span> <span class="dt">c</span><span class="op">:</span> content}<span class="op">,</span> format<span class="op">,</span> meta] <span class="op">=</span> args</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  logger<span class="op">.</span><span class="fu">log</span>(<span class="vs">`type:   &quot;</span><span class="sc">${</span>type<span class="sc">}</span><span class="vs">&quot;`</span>)</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (content) {</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>    logger<span class="op">.</span><span class="fu">log</span>(<span class="vs">`content: </span><span class="sc">${</span><span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(content<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="dv">2</span>)<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>  logger<span class="op">.</span><span class="fu">log</span>(<span class="vs">`format: </span><span class="sc">${</span>format<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>  logger<span class="op">.</span><span class="fu">log</span>(<span class="vs">`meta:   </span><span class="sc">${</span><span class="bu">JSON</span><span class="op">.</span><span class="fu">stringify</span>(meta<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="dv">2</span>)<span class="sc">}</span><span class="vs">`</span>)</span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>  logger<span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">-----</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Listing LAF.</p>
+<ol start="3" type="1">
+<li>In the Terminal window that is open on your <code>Workflow</code>
+directory, run a new command:</li>
+</ol>
+<pre class="bash-#"><code>pandoc -o index.html --filter filter.js input.md </code></pre>
+<p>Here, the <code>--filter</code> flag tells pandoc to show each “bead”
+that it has created in the AST format to the <code>fiter.js</code>
+script. The <code>filter.js</code> will run <code>log()</code> for each
+“bead”. This will append some text to a file named
+<code>filter.log</code>, with</p>
+<blockquote>
+<p>Note that this command does not include the <code>--template</code>
+directive, so the contents of <code>index.html</code> will not be a
+complete HTML document. Only the result of the conversion of
+<code>input.md</code> will appear.</p>
+<p>You can restore the <code>--template</code> directive later.</p>
+</blockquote>
+<ol start="4" type="1">
+<li>You should now find a new file at <code>Workflow/filter.log</code>.
+It starts like this.</li>
+</ol>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>type<span class="op">:</span>   <span class="st">&quot;Str&quot;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>content<span class="op">:</span> <span class="st">&quot;First&quot;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>format<span class="op">:</span> html</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>meta<span class="op">:</span>   {</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;title&quot;</span><span class="op">:</span> {</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;t&quot;</span><span class="op">:</span> <span class="st">&quot;MetaInlines&quot;</span><span class="op">,</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;c&quot;</span><span class="op">:</span> [</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>      {</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;t&quot;</span><span class="op">:</span> <span class="st">&quot;Str&quot;</span><span class="op">,</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;c&quot;</span><span class="op">:</span> <span class="st">&quot;First&quot;</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>      {</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;t&quot;</span><span class="op">:</span> <span class="st">&quot;Space&quot;</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>      }<span class="op">,</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      {</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;t&quot;</span><span class="op">:</span> <span class="st">&quot;Str&quot;</span><span class="op">,</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;c&quot;</span><span class="op">:</span> <span class="st">&quot;Dots&quot;</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="co">// Hundreds of lines skipped</span></span></code></pre></div>
+<p>File FAG.</p>
+<ol start="5" type="1">
+<li>Notice that:
+<ul>
+<li>Each “bead” has a blank line between it and the next. File FAG above
+shows just the first bead. The official name for a “bead” is a
+<code>Block</code>.</li>
+<li>Each Block has entries for:
+<ul>
+<li><code>type</code></li>
+<li><code>format</code></li>
+<li><code>meta</code></li>
+</ul></li>
+<li>Most Blocks also have an entry for <code>content</code>. (There’s no
+<code>content</code> for a Block with <code>type: "Space"</code>)</li>
+<li>For many Blocks, the <code>content</code> is a word in double
+quotation marks, like <code>"First"</code> or <code>"Dots"</code>.</li>
+<li>For some Blocks, the <code>content</code> has a more complicated
+structure. (It is an <em>array</em>.)</li>
+<li><strong>Every Block</strong> has the same entry for
+<code>meta</code>.</li>
+</ul></li>
+</ol>
+<h2 id="meta"><code>meta</code></h2>
+<p>This is what the <code>meta</code> entry looks like, for every
+Block.</p>
+<pre class="js-#"><code>meta:   {
+  &quot;title&quot;: {
+    &quot;t&quot;: &quot;MetaInlines&quot;,
+    &quot;c&quot;: [
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;First&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Space&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;Dots&quot;
+      }
+    ]
+  }
+}</code></pre>
+<ol start="6" type="1">
+<li>Compare this with the YAML block at the top of your
+<code>input.md</code> file:</li>
+</ol>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode md"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> First Dots</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">...</span></span></code></pre></div>
+<p>Do you see what the <code>meta</code> entry says, in its own
+format?It says: “There’s a variable named <code>title</code> and its
+value is: <code>"First"</code>, followed by a <code>Space</code>, and
+<code>"Dots"</code>. In simpler terms: <code>"First Dots"</code>.</p>
+<ol start="7" type="1">
+<li>Look at the Block that starts at line 101 or so:</li>
+</ol>
+<pre class="js-#101"><code>type:   &quot;Str&quot;
+content: &quot;$title$&quot;
+format: html
+meta:   {
+  &quot;title&quot;: {
+    &quot;t&quot;: &quot;MetaInlines&quot;,
+    &quot;c&quot;: [
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;First&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Space&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;Dots&quot;
+      }
+    ]
+  }
+}</code></pre>
+<p>This says: “There’s a Block with the content
+<code>"$title$"</code>.</p>
+<p>Your next task will be to replace the content <code>"$title$"</code>
+with the array from the <code>meta</code> entry.</p>
+<hr />
+<h2 id="filter.js-line-by-line"><code>filter.js</code>, line by
+line</h2>
+<p>I promised to explain what the code in <code>filter.js</code> does,
+so I’ll do that now. Most of it is just temporary code to help you see
+what pandoc’s AST Blocks look like, so you can skip ahead to the next
+section if you want.</p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/usr/bin/env node</span></span></code></pre></div>
+<p>The very first line tells the program that wants to execute this file
+that it is designed to be use with <code>node</code>, which is the code
+name for NodeJS. You can find more details about this in this <a
+href="https://stackoverflow.com/a/33510581/1927589">StackOverflow
+answer</a>.</p>
+<pre class="js-#3"><code>const pandoc = require(&quot;pandoc-filter&quot;)</code></pre>
+<p>This line tells <code>node</code> to use the
+<code>pandoc-filter</code> package. Using the food-mixer metaphor, it
+says: “Fix on the <code>pandoc-filter</code> attachement before pressing
+the Start button”. It gives this package the code name
+<code>pandoc</code>, so that it can be told what to do, later.</p>
+<pre class="js-#5"><code>pandoc.stdio(action)</code></pre>
+<p>This line says to the <code>pandoc-filter</code> package: “When you
+have some IO (input-output) work to do, tell the <code>action</code>
+function (see below) about what you are about to work on.</p>
+<h3 id="the-action-function">The <code>action()</code> function</h3>
+<p>For every Block in the AST version of your <code>input.md</code>
+text, pandoc will send some data to the <code>action()</code> function.
+This is the equivalent of you looking at each bead on the necklace.</p>
+<pre class="js-#7"><code>function action() {
+  log(arguments)
+}</code></pre>
+<p>For now, all that happens is that the data (<code>arguments</code>)
+that pandoc sends will be treated by the <code>log()</code> function
+(see below).</p>
+<p>For now, the <code>action()</code> function does not change anything
+in the data. It just looks at it, notes it into the
+<code>filter.log</code> file, nods its head and says: “Next?”</p>
+<p>In short, the <code>action()</code> function intercepts data after
+pandoc has convented it to its intermediate AST format, and before it
+has started converting it to HTML.</p>
+<h3 id="logging">Logging</h3>
+<p>In order to show you what each AST Block looks like, I have created a
+<code>logger</code> object and a <code>log</code> function.</p>
+<blockquote>
+<p>The section of the script that starts with <code>// LOGGING</code> is
+only temporary. It just helps you to understand what pandoc is doing.
+Later, when everything is working the way you want it, you will be able
+to delete this section of the script.</p>
+</blockquote>
+<pre class="js-#15"><code>const { createWriteStream } = require(&#39;fs&#39;)
+const logger = new console.Console(createWriteStream(&quot;filter.log&quot;));</code></pre>
+<p>The <code>logger</code> uses a built-in module for NodeJS called
+<code>fs</code>, which is short for <code>File System</code>. This
+allows me to write data to the file <code>filter.log</code>. Because I
+have given just the name of the file the <code>fs</code> module will
+automatically create this in the same directory as the
+<code>filter.js</code> script itself: <code>Workflow/</code>.</p>
+<pre class="js-#18"><code>function log(args) {
+  const [{t: type, c: content}, format, meta] = args
+  logger.log(`type:   &quot;${type}&quot;`)
+  if (content) {
+    logger.log(`content: ${JSON.stringify(content, null, 2)}`)
+  }
+  logger.log(`format: ${format}`)
+  logger.log(`meta:   ${JSON.stringify(meta, null, 2)}`)
+  logger.log(&quot;&quot;)
+}</code></pre>
+<p>I know, because I have looked at the source code for the
+<code>pandoc-filter</code> module, that the <code>action()</code>
+function will receive three <em>arguments</em> (that is, three separate
+pieces of data.) Specifically, line 91 (or so) in the file at
+<code>node_modules/pandoc-filter/index.js</code> will call:</p>
+<pre class="js-#91"><code>var res = action(item, format, meta)</code></pre>
+<p>By looking at the values of <code>item</code>, <code>format</code>
+and <code>meta</code> before I wrote this script, I was able to see that
+<code>item</code> is an object with two parts, with the <em>keys</em>
+<code>"t"</code> (for <code>tag</code> or <code>type</code>) and
+<code>"c"</code> (for <code>content</code>) similar to what you have
+seen in the <code>filter.log</code> file. For example:</p>
+<pre class="js-#"><code>{
+  &quot;t&quot;: &quot;Str&quot;,
+  &quot;c&quot;: &quot;First&quot;
+}</code></pre>
+<p>or</p>
+<pre class="js-#"><code>{
+  &quot;t&quot;: &quot;MetaInlines&quot;,
+  &quot;c&quot;: [
+    {
+      &quot;t&quot;: &quot;Str&quot;,
+      &quot;c&quot;: &quot;First&quot;
+    },
+    {
+      &quot;t&quot;: &quot;Space&quot;
+    },
+    {
+      &quot;t&quot;: &quot;Str&quot;,
+      &quot;c&quot;: &quot;Dots&quot;
+    }
+  ]
+}</code></pre>
+<p>I thought it would be more human-readable to convert <code>t</code>
+to <code>type</code> and <code>c</code> to content. So the line…</p>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode js"><code class="sourceCode javascript"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> [{<span class="dt">t</span><span class="op">:</span> type<span class="op">,</span> <span class="dt">c</span><span class="op">:</span> content}<span class="op">,</span> format<span class="op">,</span> meta] <span class="op">=</span> args</span></code></pre></div>
+<p>…allows me to give a name to all the individual chunks of data that I
+want to know about. This process is called <em>destructuring</em> and
+you can read more about it <a
+href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">on
+the MDN website</a>.</p>
+<h3 id="logger.log..."><code>logger.log(...)</code></h3>
+<p>The <code>logger.log(...)</code> statements append data to the
+<code>filter.log</code> file.</p>
+<pre class="js-#"><code>JSON.stringify(&lt;data&gt;, null, 2)</code></pre>
+<p>Some of the data is actually a hierarchy of data. The <a
+href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"><code>JSON.stringify()</code></a>
+statements ensure that all the data is shown, with one item per line,
+indented by <code>2</code> spaces for each hierarchical level.</p>
+Blocks with <code>type: "Str"</code> do not have an entry for
+<code>content</code>, so there is an <code>if (content) { ... }</code>
+block which only logs a content entry if such an entry exists.
+</section>
+<section id="replace-with-value" data-item=" Using $variable$ value">
+<h2>
+Replacing a <span
+class="math inline"><em>v</em><em>a</em><em>r</em><em>i</em><em>a</em><em>b</em><em>l</em><em>e</em></span>
+with its value
+</h2>
+<p>Now that you know what data pandoc sends to the <code>action()</code>
+function, you can check for any Block where the content is
+<code>$title$</code>… or indeed any single word that has a
+<code>$</code> dollar sign at each end.</p>
+<p>Specifically, you will be looking for this Block:</p>
+<pre class="js-#101"><code>type:   &quot;Str&quot;
+content: &quot;$title$&quot;
+format: html
+meta:   {
+  &quot;title&quot;: {
+    &quot;t&quot;: &quot;MetaInlines&quot;,
+    &quot;c&quot;: [
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;First&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Space&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;Dots&quot;
+      }
+    ]
+  }
+}</code></pre>
+<p>When the <code>action()</code> function detects that it has received
+the Block where <code>content</code> is <code>"$title$"</code>, it
+should return this part of the <code>meta</code> entry, to replace
+<code>"$title$"</code>:</p>
+<pre class="js-#"><code>    [
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;First&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Space&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;Dots&quot;
+      }
+    ]</code></pre>
+<p>Pandoc will use this meta value instead of the string
+<code>$title$</code> when it converts its AST format to HTML.</p>
+<p>The simplest way to do this would be to:</p>
+<ol type="1">
+<li>Add three lines of code to the <code>action()</code> function in
+<code>Workflow/filter.js</code>, as shown in Listing FAH below:</li>
+</ol>
+<pre class="js-#5"><code>function action({t: type, c: content}, format, meta) {
+  log(arguments)
+  
+  if (content === &quot;$title$&quot;) {
+    return meta.title.c
+  }
+}</code></pre>
+<p>Listing FAH.</p>
+<blockquote>
+<p>Note that now that you have seen what arguments the
+<code>action()</code> function receives, you can access them directly,
+inside the round parentheses that follow the name of the function.</p>
+</blockquote>
+<ol start="2" type="1">
+<li>In the Terminal window that is open on your <code>Workflow</code>
+directory, run the same command that you just used (Up arrow +
+Enter):</li>
+</ol>
+<pre class="bash-#"><code>pandoc -o index.html --filter filter.js input.md</code></pre>
+<ol start="3" type="1">
+<li>Look at what has been written in
+<code>Workflow/index.html</code>.</li>
+</ol>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;title&quot;</span><span class="dt">&gt;</span>First Dots<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Use pandoc to convert this markdown file to HTML.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;&quot;</span><span class="dt">&gt;</span>A link which does nothing<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Success! The <code>$title$</code> variable in the
+<code>&lt;h1&gt;</code> header element has been replaced by the value of
+<code>title</code> taken from the YAML block:
+<code>First Dots</code>.</p>
+</section>
+<section id="regex" data-item="Regular Expressions">
+<h2>
+Regular Expressions
+</h2>
+<p>The version of the <code>action()</code> function that you have just
+written only works for one variable (<code>$title$</code>). To make it
+work for <em>any</em> single word with a <code>$</code> sign at each
+end, you need to some changes.</p>
+<p>A good way to check if a given string follows a specific pattern is
+to use a <a
+href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions">Regular
+Expression</a>. A regular expression is a compact way of defining the
+rules for a pattern of characters.</p>
+<p>Here is a Regular Expression which will detect if a string:</p>
+<ul>
+<li>Starts with a <code>$</code> sign</li>
+<li>Continues with a string of lowercase unaccented Latin characters
+(anything from “a” to “z”)</li>
+<li>Ends with a <code>$</code> sign</li>
+<li>Contains no other characters except perhaps a <code>.</code> dot, an
+<code>_</code> underscore or a <code>-</code> dash.</li>
+</ul>
+<pre class="regexp-#"><code>/^\$([a-z_.-]+)\$$/</code></pre>
+<p>This corresponds to the official <a
+href="https://pandoc.org/chunkedhtml-demo/6.1-template-syntax.html#interpolated-variables">pandoc
+naming system for variables</a>.</p>
+<p>A regular expression look quite alien when you first see it, but
+there is method in this apparent madness.</p>
+<blockquote>
+<p>You can see how this regular expression works in <a
+href="https://regex101.com/r/FhdRcu/2">regex101.com</a>. The first five
+example strings match the pattern defined by the regular expression. The
+text on the right explains step-by-step how the regular expression
+works.</p>
+<p>Note how the <code>$</code> has two different meanings. When it is
+escaped with a backslash <code>\$</code> it means “dollar sign”. Without
+the backslash, it means “final character”. So <code>/\$$</code> means “a
+dollar sign followed by no other characters”.</p>
+</blockquote>
+<figure>
+<img src="images/regex.webp" alt="RegEx101.com" />
+<figcaption aria-hidden="true">RegEx101.com</figcaption>
+</figure>
+<p>You’ll notice that not only does the regular expression check if it
+matches the pattern, but it also extracts the characters between the
+<code>$</code> dollar signs, which regex101.com calls
+<code>Group 1</code>.</p>
+<h3 id="testing-in-the-node-ide">Testing in the Node IDE</h3>
+<p>You can check how NodeJS treats regular expressions in an
+<em>integrated development environment</em> (IDE) in your Terminal.</p>
+<ol type="1">
+<li>Open a new Terminal window</li>
+<li>Run the command <code>node</code> to open the Node IDE</li>
+<li>Create a variable <code>r</code> with the value of the regular
+expression you want to test:</li>
+</ol>
+<pre class="bash-#"><code>r = /^\$([a-z_.-]+)\$$/</code></pre>
+<ol start="4" type="1">
+<li>Evaluate the expression <code>r.exec("$title$")</code></li>
+</ol>
+<p>Your Terminal window should look something like this:</p>
+<pre class="bash-#"><code>$ node
+Welcome to Node.js v23.1.0.
+Type &quot;.help&quot; for more information.
+&gt; &lt;b&gt;r = /^\$([a-z_.-]+)\$$/&lt;/b&gt;
+/^\$([a-z_.-]+)\$$/
+&gt; &lt;b&gt;r.exec(&quot;$title$&quot;)&lt;/b&gt;
+[ &#39;$title$&#39;, &#39;title&#39;, index: 0, input: &#39;$title$&#39;, groups: undefined ]</code></pre>
+<p>The expression <code>r.exec("$title$")</code> evaluates to an array.
+JavaScript starts counting from 0, so:</p>
+<ul>
+<li>Item <code>0</code> of the array is the full string that matches the
+regular expression.</li>
+<li>Item <code>1</code> gives the part of that match that is inside the
+<em>capturing group</em> that is defined by the <code>()</code> round
+parentheses.</li>
+<li>The <code>index</code> value says that this match started when there
+were <code>0</code> characters to the left</li>
+<li>The <code>input</code> value reminds you of the entire string that
+you tested in order to find the given pattern</li>
+<li><code>groups</code> has the value <code>undefined</code>, because
+this regular expression did not used an advanced feature where you can
+create capturing groups with specific names.</li>
+</ul>
+<ol start="5" type="1">
+<li>Now check what happens if the string inside the round parentheses
+does not match the pattern, or if it is not a string:</li>
+</ol>
+<pre class="bash-#"><code>&gt; &lt;b&gt;r.exec(&quot;$title&quot;)&lt;/b&gt;
+null
+&gt; &lt;b&gt;r.exec()&lt;/b&gt;
+null
+&gt; &lt;b&gt;r.exec(42)&lt;/b&gt;
+null
+&gt; &lt;b&gt;r.exec([])&lt;/b&gt;
+null</code></pre>
+<p>When there is no match, the expression evaluates to
+<code>null</code>, which is one of the ways JavaScript has for saying
+“nothing at all”.</p>
+<p>The important point to note is that when the string <em>does</em>
+match the regular expression pattern, you get an array where the item
+<code>1</code> is the input string stripped of its <code>$</code>
+characters.</p>
+<p>You can use the item <code>1</code> string to look for a replacement
+in the <code>meta</code> block.</p>
+</section>
+<section id="generic-action" data-item="A Generic action()">
+<p>Using this regular expression, you can edit your
+<code>action()</code> function so that it will:</p>
+<ul>
+<li>Look for any <code>content</code> that has the
+<code>$doubledollar$</code> pattern</li>
+<li>Create a variable call <code>key</code>, whose value will be the
+same string but without the <code>$</code> dollar signs</li>
+<li>Check if the <code>meta</code> entry contains an entry for this
+dollar-free string, and if so, return the value for its <code>.c</code>
+entry.</li>
+</ul>
+<blockquote>
+<p>Remember that the <code>meta</code> entry looks like this…</p>
+<pre class="js-#"><code>meta:   {
+  &quot;title&quot;: {
+    &quot;t&quot;: &quot;MetaInlines&quot;,
+    &quot;c&quot;: [
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;First&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Space&quot;
+      },
+      {
+        &quot;t&quot;: &quot;Str&quot;,
+        &quot;c&quot;: &quot;Dots&quot;
+      }
+    ]
+  }
+}</code></pre>
+<p>… so if the value of <code>key</code> is <code>title</code>,
+<code>meta[key].c</code> will be the same as
+<code>meta.title.c</code>.</p>
+</blockquote>
+<ol type="1">
+<li>Edit the beginning of your <code>filter.js</code> script, so that it
+matches File FAJ below</li>
+</ol>
+<pre class="js-#3"><code>const pandoc = require(&quot;pandoc-filter&quot;)
+const REGEX = /^\$([a-z_.-]+)\$$/
+
+pandoc.stdio(action);
+
+function action({t: type, c: content}, format, meta) {
+  log(arguments)
+  
+  const match = REGEX.exec(content)
+  if (match) { // content is like `$title$`
+    const key = match[1] // key will be like `title`
+    const swap = meta[key]
+    if (swap) {
+      return swap.c  // an array from `meta`
+    } // else returns undefined
+  }
+}</code></pre>
+<p>File FAJ.</p>
+<p>If there is no match, or if the matching key has no entry in the
+<code>meta</code> array, then your <code>action()</code> function will
+return <code>undefined</code>, which is another of JavaScript’s ways of
+saying “nothing at all”.</p>
+<p>As the <a href="https://pandoc.org/filters.html">official
+documentation</a> says: &gt; If [the <code>action()</code> function]
+returns nothing, the node is unchanged; if it returns an object, the
+node is replaced.</p>
+<p>When <code>content</code> is <code>"$title$</code>, the object that
+is returned will be …</p>
+<pre class="js-#"><code>[
+  {
+    &quot;t&quot;: &quot;Str&quot;,
+    &quot;c&quot;: &quot;First&quot;
+  },
+  {
+    &quot;t&quot;: &quot;Space&quot;
+  },
+  {
+    &quot;t&quot;: &quot;Str&quot;,
+    &quot;c&quot;: &quot;Dots&quot;
+  }
+]</code></pre>
+<p>… which contains the AST for “First Dots”.</p>
+<h3 id="testing-the-generic-action">Testing the generic
+<code>action()</code></h3>
+<p>To test if this new generic <code>action()</code> function works
+correctly, you can:</p>
+<ol type="1">
+<li>Change the value for <code>title</code> in the YAML block</li>
+<li>Add a new variable in the YAML block of your <code>input.md</code>
+file, and use it in the body of the file, as shown in Listing LAI
+below:</li>
+</ol>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode md"><code class="sourceCode markdown"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">i</span><span class="dt">&gt;</span>---</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>title: <span class="dt">&lt;/</span><span class="kw">i</span><span class="dt">&gt;&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>First Steps Complete<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>subtitle: Success!<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;&lt;</span><span class="kw">i</span><span class="dt">&gt;</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="fu"># \$title\$&lt;/i&gt;</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>## $subtitle$<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;&lt;</span><span class="kw">i</span><span class="dt">&gt;</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>Use pandoc to convert this markdown file to HTML.</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">A link which does nothing</span><span class="co">]()</span><span class="dt">&lt;/</span><span class="kw">i</span><span class="dt">&gt;</span></span></code></pre></div>
+<ol start="2" type="1">
+<li>In the Terminal window that is open on your <code>Workflow</code>
+directory, run the same command that you just used (Up arrow +
+Enter):</li>
+</ol>
+<div class="sourceCode" id="cb50"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="at">-o</span> index.html <span class="at">--filter</span> filter.js input.md</span></code></pre></div>
+<ol start="3" type="1">
+<li>Check what was written to your <code>index.html</code> file. It
+should be something like this:</li>
+</ol>
+<div class="sourceCode" id="cb51"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;title&quot;</span><span class="dt">&gt;</span>First Steps Complete<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;subtitle&quot;</span><span class="dt">&gt;</span>Success!<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Use pandoc to convert this markdown file to HTML.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;&quot;</span><span class="dt">&gt;</span>A link which does nothing<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Congratulations! Pandoc has used the value of both YAML variables to
+replace their dollar-wrapped names. You have successfully created your
+first JavaScript filter for pandoc!</p>
+<blockquote>
+<p>You’ve made pandoc work with one simple Markdown file. To create a
+multi-part tutorial, you’ll need to discover how to make pandoc produce
+a single HTML file from multiple Markdown files, with a shared HTML
+template.</p>
+<p>But this tutorial is about <em>workflow</em> as much as it is about
+writing tutorials. You’re going to be performing the same actions
+repetitively, and the more you write, the more time you can save if you
+first automate these actions.</p>
+</blockquote>
+</section>
+<section id="script-shortcuts" data-item="Scripts and Shortcuts">
+<h2>
+Scripts and Shortcuts
+</h2>
+<p>How many times have you already executed one of these commands in the
+Terminal?</p>
+<pre class="bash-#"><code>pandoc -o index.html --template=template.html input.md</code></pre>
+<pre class="bash-#"><code>pandoc -o index.html --filter filter.js input.md</code></pre>
+<p>It’s good that you can press the Up arrow key and then Enter, but you
+do have to select the Terminal window first. And if you have to do other
+work in the Terminal, there might be other commands that fill up your
+recent history.</p>
+<p>Wouldn’t it be good if you could just use a simple keyboard shortcut,
+while you are typing in the Text Editor?</p>
+<p>Actually, soon you will be combining the two commands, and later you
+will need to add more arguments. I’ll show you two techniques that you
+can combine to make your life simpler:</p>
+<ol type="1">
+<li>Creating an <code>npm</code> script</li>
+<li>Creating a VS Code keybinding to run the script</li>
+</ol>
+<p>The keybinding requires a trick that is not very intuitive, so I’ll
+also show you a technique for:</p>
+<ol start="3" type="1">
+<li>Making keybindings for other commands that you might execute in the
+Terminal often.</li>
+</ol>
+<h2 id="creating-an-npm-script">Creating an <code>npm</code> script</h2>
+<p>When you ran <code>npm install pandoc-filter</code> back in Section
+6, <code>npm</code> created a file called package.json at the root of
+your <code>Workflow/</code> directory. Its contents currently look
+something like this:</p>
+<pre class="json-#"><code>{
+  &quot;dependencies&quot;: {
+    &quot;pandoc-filter&quot;: &quot;^2.2.0&quot;
+  }
+}</code></pre>
+<ol type="1">
+<li>Add a new “scripts” section, with a key called <code>"pandoc"</code>
+and a value which merges the two commands that you have already used, as
+shown below.</li>
+</ol>
+<pre class="json-#w"><code>&lt;i&gt;{&lt;/i&gt;
+  &lt;b&gt;&quot;scripts&quot;: {
+    &quot;pandoc&quot;: &quot;pandoc -o index.html --filter filter.js --template=template.html input.md&quot;
+  },&lt;/b&gt;&lt;i&gt; 
+  &quot;dependencies&quot;: {
+    &quot;pandoc-filter&quot;: &quot;^2.2.0&quot;
+  }
+}&lt;/i&gt;</code></pre>
+<ol start="2" type="1">
+<li>Run this simpler command in the Terminal:</li>
+</ol>
+<pre class="bash-#"><code>npm run pandoc</code></pre>
+<p>This tells the Node Package Manager to read the <code>"pandoc"</code>
+script that you just added to the <code>"scripts"</code> section of
+<code>package.json</code>, and to tell the active Terminal to run it.
+The most recent lines in your Terminal should look something like
+this:</p>
+<pre class="bash-#w"><code>$ &lt;b&gt;npm run pandoc&lt;/b&gt;
+
+&gt; pandoc
+&gt; pandoc -o index.html --filter filter.js --template=template.html input.md</code></pre>
+<blockquote>
+<p>But this hasn’t helped very much yet. You still have to activate the
+Terminal, and type something into it. In the next step, you’ll see how
+to send use a keyboard shortcut to give this same command to the
+Terminal.</p>
+</blockquote>
+</section>
+<section id="keybindings" data-item="VS Code Key Bindings">
+<h2>
+VS Code Key Bindings
+</h2>
+<p>Virtual Studio Code allows you to customize your keyboard shortcuts
+or <a
+href="https://code.visualstudio.com/docs/getstarted/keybindings">Key
+Bindings</a>.</p>
+<p>It even allows you to create <a
+href="https://code.visualstudio.com/docs/terminal/advanced#_custom-sequence-keybindings">Key
+Bindings for the Terminal</a>. Specifically, this “only works with the
+\u0000 format”. Scary?</p>
+<p>I’ll show you first how to create a key binding that will run the
+command <code>npm run pandoc</code>, even if you don’t have an
+integrated Terminal window open.</p>
+<ol type="1">
+<li><p>Open the Command Palette. The lazy way to do this is to select
+the menu item View &gt; Command Palette. <img
+src="images/CommandPalette.webp" alt="Command Palette" /></p>
+<p>You’ll notice that the menu item shows a keyboard shortcut:
+Ctrl-Shift-P. In the future, you can use the shortcut instead and save a
+few precious seconds.</p></li>
+</ol>
+<blockquote>
+<p>There’s an even shorter shortcut though. With only one finger, you
+can press the <code>F1</code> key on your keyboard. However, your
+keyboard may be set up to activate a media control when you press
+<code>F1</code>. In that case, you <em>can</em> press both the
+<code>fn</code> and the <code>F1</code> keys, but a better solution is
+to toggle the function lock. You can <a
+href="https://www.google.com/search?q=fn+function+lock">seach on
+Google</a> to see how to do this on your operating system.</p>
+</blockquote>
+<ol start="2" type="1">
+<li>With the Command Palette open, start typing the word
+<code>keyboard</code>. You won’t have to type the whole word before the
+auto-complete system will suggest
+<code>Preferences: Open Keyboard Shortcuts (JSON)</code>.</li>
+</ol>
+<figure>
+<img src="images/keyboard.webp" alt="Keyboard Shortcuts" />
+<figcaption aria-hidden="true">Keyboard Shortcuts</figcaption>
+</figure>
+<ol start="3" type="1">
+<li>Press Enter to select this item (or lose a few precious seconds by
+moving your mouse to click and make the selection).</li>
+<li>A new VS Code window will open, showing you the
+<code>keybinding.json</code> file where all your keyboard shorcuts are
+stored. Copy the following JSON object…</li>
+</ol>
+<pre class="json-#"><code>,
+{
+    &quot;key&quot;: &quot;ctrl+shift+alt+p&quot;, // use your own shortcut
+    &quot;description&quot;: &quot;Runs \&#39;npm run pandoc&#39;\ in the  Terminal&quot;,
+    &quot;command&quot;: &quot;workbench.action.terminal.sendSequence&quot;,
+    &quot;args&quot;: {
+        &quot;text&quot;: &quot;\u006E\u0070\u006D\u0020\u0072\u0075\u006E\u0020\u0070\u0061\u006E\u0064\u006F\u0063\u000A&quot;
+    }
+}</code></pre>
+<ol start="5" type="1">
+<li>… and paste it at the end of the of the file, as shown in File
+Listing XXX above.</li>
+</ol>
+<blockquote>
+<p>Make sure that there is a final <code>}</code> closing curly brace
+<em>after</em> the chunk of text that you pasted in, and that there are
+no extra <code>,</code> comma characters. If the <code>{}</code> curly
+braces or commas are not correctly balanced in this file, it could fail
+to work.</p>
+</blockquote>
+<ol start="6" type="1">
+<li><p>I’ve chosen the key binding <code>ctrl+shift+alt+p</code> (with
+<code>p</code> standing for <code>pandoc</code>), but you can edit the
+entry for <code>"key"</code> to suit your own preferences.</p></li>
+<li><p>Bring to the front the window where you are working on your
+Workflow project and press the keyboard shortcut that you chose. If all
+goes well, you should see the following in your Terminal
+window:</p></li>
+</ol>
+<pre class="bash-#w"><code>&lt;b&gt;npm run pandoc&lt;/b&gt;
+
+&gt; pandoc
+&gt; pandoc -o index.html --filter filter.js --template=template.html input.md</code></pre>
+<p>In other words, with a single keyboard shortcut, you have been able
+to run the whole
+<code>pandoc -o index.html --filter filter.js --template=template.html input.md</code>
+command. All that matters is that the project window that contains your
+<code>package.json</code> file is the active window. It doesn’t matter
+which panel in that window you are working in.</p>
+<p>As you learn more about pandoc, you can update the
+<code>"pandoc"</code> script in the <code>package.json</code> file, and
+continue to use the same keyboard shortcut to execute it.</p>
+<blockquote>
+<p>This shortcut expects that:</p>
+<ul>
+<li>You have a file named <code>package.json</code> in your active
+project</li>
+<li>Your <code>package.json</code> contains a <code>"scripts"</code>
+section where a script named <code>"pandoc"</code> is defined</li>
+</ul>
+<p>If you press this keyboard shortcut in VS Code when working on a
+different project, you might see one of these errors:</p>
+<pre class="bash-#"><code>npm run pandoc
+npm error code ENOENT
+npm error syscall open
+&lt;s&gt;# + more error details&lt;/s&gt;
+npm error enoent Could not read package.json</code></pre>
+<pre class="bash-#"><code>npm run pandoc
+npm error Missing script: &quot;pandoc&quot;
+&lt;s&gt;# + more error details&lt;/s&gt;</code></pre>
+<p>This is normal. You would get exactly the same error if you
+explicitly typed <code>npm run pandoc</code> in a Terminal that is
+unable to make sense of this command.</p>
+</blockquote>
+<blockquote>
+<p>But what’s this strange
+<code>"text":"\u006E\u0070\u006D\u0020\u0072\...</code> entry, and how
+does it work? That’s what you will see next… if you want to.</p>
+</blockquote>
+</section>
+<section id="sendsequence" data-item="Using .sendsequence">
+<h2>
+Using <code>workbench.action.terminal.sendSequence</code>
+</h2>
+<p>When you create <a
+href="https://code.visualstudio.com/docs/terminal/advanced#_custom-sequence-keybindings">key
+bindings for the Terminal</a>, you have to talk in the language that the
+Terminal understands.</p>
+<p>When you look at this page, you see words. Since your early
+childhood, you have trained your brain to recognise that footprints in
+the mud combine to show where someone was going, and that letters on a
+page combine to give a specific meaning. You have built up a personal
+knowledge of the world that computers do not have.</p>
+<p>All that computers can see are zeroes and ones. Actually, they don’t
+even see that; they see two contrasting electro-magnetic patterns, that
+we humans like to call zeroes and ones.</p>
+<p>So when you see the letter “a” on your screen, the computer sees the
+electro-magnetic equivalent of <code>1100001</code>, which is the binary
+representation of the number 97. You are used to reading Latin letters
+(A-Z, a-z), but there are hundreds of different writing systems, and
+some, like Chinese, have many more characters than the Latin alphabet.
+Over the centuries, humans have created thousands of meaningful
+characters.</p>
+<p>Humans have developed a system called <em>Unicode</em> which is
+designed to represent every character, symbol, emoji and meaninful
+squiggle into a number that a computer can store. It even has numbers
+for characters that you can’t see, like <a
+href="https://en.wikipedia.org/wiki/Zero-width_space">U+200B ZERO WIDTH
+SPACE</a> and control characters like <a
+href="https://en.wikipedia.org/wiki/Unicode_control_characters#Category_%22Cc%22_control_codes_(C0_and_C1)">U+000A
+LINE FEED</a>, which says “the next character starts on the next
+line”.</p>
+<p>For you, the numbers <code>1</code> and <code>11</code> are very
+different. But if you put them side-by-side, you wouldn’t know if your
+were looking at “one” and “eleven”, or “eleven and one” or “one hundred
+and eleven”. One easy solution is to say: “We will only count from 0 to
+99, and any single-digit numbers must be padded with a zero.” With this
+rule, it’s easy to see the difference between <code>0111</code> (“one”
+and “eleven”) and <code>1101</code> (“eleven and one”)… but “one hundred
+and eleven” cannot be written in this system.</p>
+<blockquote>
+<p>You’ll be padding numbers with zeroes yourself shortly.</p>
+</blockquote>
+<p>The Unicode system uses thousands of different numbers, so it needs
+to use a fixed number of separate spaces, big enough to hold the biggest
+numbers, and it needs to pad all numbers except for the very biggest
+with zeroes.</p>
+<p>One standard is to use 4 hexadecimal characters for each number, from
+<code>0000</code> (zero) to <code>FFFF</code> (65535). Each hexadecimal
+digit is a shorthand for 4 <em>bits</em> (or binary digits). These range
+from <code>0000</code> (binary zero) to <code>1111</code> (8 + 4 + 2 + 1
+= 15). This means that the system will use numbers that are stored with
+16 bit spaces..</p>
+<p>The letter “a” is represented by the number <code>97</code> which is
+<code>4 x 16 + 1</code> or <code>41</code> in hexadecimal, or
+<code>0041</code> in the Unicode system that I am describing.</p>
+<p>To tell the computer to expect that a particular group of 16
+zeroes-and-ones is actually a Unicode character, the number is preceded
+(in human eyes) by <code>\u</code>. So “a” for you is
+<code>\u0041</code> to the computer.</p>
+<p>If you visit the <a
+href="https://dencode.com/en/string/unicode-escape">DenCode</a> website,
+you can paste the sequence
+<code>\u006E\u0070\u006D\u0020\u0072\u0075\u006E\u0020\u0070\u0061\u006E\u0064\u006F\u0063\u000A</code>
+into the input field, and you will see <code>npm run pandoc⏎</code> in
+the output field.</p>
+<p>Actually, you won’t see the <code>⏎</code>LINE FEED character,
+because it’s invisible, but it’s there. It has to be included in the
+sequence that you send to the Terminal, so that the Terminal knows not
+just to display the string <code>npm run pandoc</code> but also to do
+the equivalent of pressing the Enter key, to execute the command.</p>
+<h2 id="converting-to-unicode-escape-format">Converting to Unicode
+Escape format</h2>
+<p>If you want to create your own key bindings to use with the
+<code>"workbench.action.terminal.sendSequence"</code> command, you can
+use the create a script that will do this for you.</p>
+<ol type="1">
+<li>Create new folder, in the place where you keep stuff that might be
+useful later</li>
+<li>Create a new file in this new folder and call it
+<code>createKeyBinding.js</code></li>
+</ol>
+<blockquote>
+<p>if you want to do this all from the Terminal, run :</p>
+<pre class="bash-#w"><code> # Edit the following line to choose your own target directory:
+&lt;b&gt;dir=~/Documents/CoolTools/npm&lt;/b&gt;
+# Create the directory, if necessary, and cd into it
+&lt;b&gt;mkdir -p $dir &amp;&amp; cd $dir&lt;/b&gt;
+# Create a new (empty) file and open it in VS Code
+&lt;b&gt;code createKeyBinding.js&lt;/b&gt;</code></pre>
+</blockquote>
+<ol start="3" type="1">
+<li>Paste the following code into <code>createKeyBinding.js</code>. Yes,
+it’s long, but it’s mostly explanatory comments.</li>
+</ol>
+<div class="sourceCode" id="cb63"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Read input from the command line.</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="co">// `process.argv` is an array. The first two items will be</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a><span class="co">// 0: The absolute path to the node executable file</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co">// 1: The absolute path to the file you want node to run</span></span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Any remaining items will be the words that followed the</span></span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="co">// `node &lt;scriptname&gt;` command. For example, if you run the</span></span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="co">// command...</span></span>
+<span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a><span class="co">//    node createKeyBinding.js three word argument</span></span>
+<span id="cb63-13"><a href="#cb63-13" aria-hidden="true" tabindex="-1"></a><span class="co">// </span></span>
+<span id="cb63-14"><a href="#cb63-14" aria-hidden="true" tabindex="-1"></a><span class="co">// ... process.argv will be something like this:</span></span>
+<span id="cb63-15"><a href="#cb63-15" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb63-16"><a href="#cb63-16" aria-hidden="true" tabindex="-1"></a><span class="co">// [</span></span>
+<span id="cb63-17"><a href="#cb63-17" aria-hidden="true" tabindex="-1"></a><span class="co">//   &#39;/path/to/node&#39;,</span></span>
+<span id="cb63-18"><a href="#cb63-18" aria-hidden="true" tabindex="-1"></a><span class="co">//   &#39;/path/to/createKeyBinding.js&#39;,</span></span>
+<span id="cb63-19"><a href="#cb63-19" aria-hidden="true" tabindex="-1"></a><span class="co">//   &#39;three&#39;,</span></span>
+<span id="cb63-20"><a href="#cb63-20" aria-hidden="true" tabindex="-1"></a><span class="co">//   &#39;word&#39;,</span></span>
+<span id="cb63-21"><a href="#cb63-21" aria-hidden="true" tabindex="-1"></a><span class="co">//   &#39;argument&#39;</span></span>
+<span id="cb63-22"><a href="#cb63-22" aria-hidden="true" tabindex="-1"></a><span class="co">// ]</span></span>
+<span id="cb63-23"><a href="#cb63-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-24"><a href="#cb63-24" aria-hidden="true" tabindex="-1"></a><span class="co">// console.log(&quot;process.argv:&quot;, process.argv, &quot;\n\n&quot;)</span></span>
+<span id="cb63-25"><a href="#cb63-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-26"><a href="#cb63-26" aria-hidden="true" tabindex="-1"></a><span class="co">// Ignore the first two items, and just keep the words that were</span></span>
+<span id="cb63-27"><a href="#cb63-27" aria-hidden="true" tabindex="-1"></a><span class="co">// given after the name of the file to run...</span></span>
+<span id="cb63-28"><a href="#cb63-28" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> input <span class="op">=</span> <span class="bu">process</span><span class="op">.</span><span class="at">argv</span><span class="op">.</span><span class="fu">slice</span>(<span class="dv">2</span>)</span>
+<span id="cb63-29"><a href="#cb63-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-30"><a href="#cb63-30" aria-hidden="true" tabindex="-1"></a><span class="co">// ... or use &quot;npm run pandoc&quot; if no input is given</span></span>
+<span id="cb63-31"><a href="#cb63-31" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="op">!</span>input<span class="op">.</span><span class="at">length</span>) {</span>
+<span id="cb63-32"><a href="#cb63-32" aria-hidden="true" tabindex="-1"></a>  input <span class="op">=</span> <span class="st">&quot;npm run pandoc&quot;</span></span>
+<span id="cb63-33"><a href="#cb63-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-34"><a href="#cb63-34" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb63-35"><a href="#cb63-35" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Input from the command line will be separate words that need</span></span>
+<span id="cb63-36"><a href="#cb63-36" aria-hidden="true" tabindex="-1"></a>  <span class="co">// to be joined into one continuous string.</span></span>
+<span id="cb63-37"><a href="#cb63-37" aria-hidden="true" tabindex="-1"></a>  input <span class="op">=</span> input<span class="op">.</span><span class="fu">join</span>(<span class="st">&quot; &quot;</span>)</span>
+<span id="cb63-38"><a href="#cb63-38" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb63-39"><a href="#cb63-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-40"><a href="#cb63-40" aria-hidden="true" tabindex="-1"></a><span class="co">// Convert input to an array of individual characters</span></span>
+<span id="cb63-41"><a href="#cb63-41" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> charArray <span class="op">=</span> [<span class="op">...</span>input] <span class="co">// or input.split(&quot;&quot;)</span></span>
+<span id="cb63-42"><a href="#cb63-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-43"><a href="#cb63-43" aria-hidden="true" tabindex="-1"></a><span class="co">// Define a callback function that can be used with Arra.reduce()</span></span>
+<span id="cb63-44"><a href="#cb63-44" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">escape</span>(cumul<span class="op">,</span> char) {</span>
+<span id="cb63-45"><a href="#cb63-45" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Assume all characters in input will be ASCII characters</span></span>
+<span id="cb63-46"><a href="#cb63-46" aria-hidden="true" tabindex="-1"></a>  <span class="co">// (No emojis or symbols from other writing systems)</span></span>
+<span id="cb63-47"><a href="#cb63-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> cumul</span>
+<span id="cb63-48"><a href="#cb63-48" aria-hidden="true" tabindex="-1"></a>       <span class="op">+</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">u00&quot;</span></span>
+<span id="cb63-49"><a href="#cb63-49" aria-hidden="true" tabindex="-1"></a>       <span class="op">+</span> char<span class="op">.</span><span class="fu">charCodeAt</span>(<span class="dv">0</span>)</span>
+<span id="cb63-50"><a href="#cb63-50" aria-hidden="true" tabindex="-1"></a>             <span class="op">.</span><span class="fu">toString</span>(<span class="dv">16</span>)</span>
+<span id="cb63-51"><a href="#cb63-51" aria-hidden="true" tabindex="-1"></a>             <span class="op">.</span><span class="fu">toUpperCase</span>()</span>
+<span id="cb63-52"><a href="#cb63-52" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb63-53"><a href="#cb63-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-54"><a href="#cb63-54" aria-hidden="true" tabindex="-1"></a><span class="co">// Generate a string of Unicode Escape characters, beginning</span></span>
+<span id="cb63-55"><a href="#cb63-55" aria-hidden="true" tabindex="-1"></a><span class="co">// with an opening &quot; double quote mark and ending with the</span></span>
+<span id="cb63-56"><a href="#cb63-56" aria-hidden="true" tabindex="-1"></a><span class="co">// Line Feed character followed by a closing double quote mark.</span></span>
+<span id="cb63-57"><a href="#cb63-57" aria-hidden="true" tabindex="-1"></a><span class="co">// </span></span>
+<span id="cb63-58"><a href="#cb63-58" aria-hidden="true" tabindex="-1"></a><span class="co">// The character `\` has the special meaning of &quot;ignore the next</span></span>
+<span id="cb63-59"><a href="#cb63-59" aria-hidden="true" tabindex="-1"></a><span class="co">// character, or treat it in a special way&quot;. For example `\n`</span></span>
+<span id="cb63-60"><a href="#cb63-60" aria-hidden="true" tabindex="-1"></a><span class="co">// means &quot;new line&quot;.</span></span>
+<span id="cb63-61"><a href="#cb63-61" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb63-62"><a href="#cb63-62" aria-hidden="true" tabindex="-1"></a><span class="co">// To include the character `\` in a string, it must be _escaped_</span></span>
+<span id="cb63-63"><a href="#cb63-63" aria-hidden="true" tabindex="-1"></a><span class="co">// with another `\` character. In other words: `\\` means &quot;ignore&quot;</span></span>
+<span id="cb63-64"><a href="#cb63-64" aria-hidden="true" tabindex="-1"></a><span class="co">// the fact that `\` means ignore the next character, and use the</span></span>
+<span id="cb63-65"><a href="#cb63-65" aria-hidden="true" tabindex="-1"></a><span class="co">// second `\` character exactly as it is.</span></span>
+<span id="cb63-66"><a href="#cb63-66" aria-hidden="true" tabindex="-1"></a><span class="co">//</span></span>
+<span id="cb63-67"><a href="#cb63-67" aria-hidden="true" tabindex="-1"></a><span class="co">// When used as the text for the</span></span>
+<span id="cb63-68"><a href="#cb63-68" aria-hidden="true" tabindex="-1"></a><span class="co">// workbench.action.terminal.sendSequence command, the Line Feed</span></span>
+<span id="cb63-69"><a href="#cb63-69" aria-hidden="true" tabindex="-1"></a><span class="co">// character will tell the Terminal to execute the preceding text.</span></span>
+<span id="cb63-70"><a href="#cb63-70" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> escaped <span class="op">=</span> charArray<span class="op">.</span><span class="fu">reduce</span>(escape<span class="op">,</span> <span class="st">&#39;&quot;&#39;</span>) <span class="op">+</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">u000A</span><span class="sc">\&quot;</span><span class="st">&#39;</span></span>
+<span id="cb63-71"><a href="#cb63-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-72"><a href="#cb63-72" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="vs">`</span></span>
+<span id="cb63-73"><a href="#cb63-73" aria-hidden="true" tabindex="-1"></a><span class="vs">### Paste the following JSON block into keybindings.json</span></span>
+<span id="cb63-74"><a href="#cb63-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb63-75"><a href="#cb63-75" aria-hidden="true" tabindex="-1"></a><span class="vs">,</span></span>
+<span id="cb63-76"><a href="#cb63-76" aria-hidden="true" tabindex="-1"></a><span class="vs">{</span></span>
+<span id="cb63-77"><a href="#cb63-77" aria-hidden="true" tabindex="-1"></a><span class="vs">    &quot;key&quot;: &quot;ctrl+shift+alt+X&quot;, // use your own shortcut</span></span>
+<span id="cb63-78"><a href="#cb63-78" aria-hidden="true" tabindex="-1"></a><span class="vs">    &quot;description&quot;: &quot;Runs &#39;</span><span class="sc">${</span>input<span class="sc">}</span><span class="vs">&#39; in the  Terminal&quot;,</span></span>
+<span id="cb63-79"><a href="#cb63-79" aria-hidden="true" tabindex="-1"></a><span class="vs">    &quot;command&quot;: &quot;workbench.action.terminal.sendSequence&quot;,</span></span>
+<span id="cb63-80"><a href="#cb63-80" aria-hidden="true" tabindex="-1"></a><span class="vs">    &quot;args&quot;: {</span></span>
+<span id="cb63-81"><a href="#cb63-81" aria-hidden="true" tabindex="-1"></a><span class="vs">        &quot;text&quot;: </span><span class="sc">${</span>escaped<span class="sc">}</span></span>
+<span id="cb63-82"><a href="#cb63-82" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb63-83"><a href="#cb63-83" aria-hidden="true" tabindex="-1"></a><span class="vs">}`</span>)</span></code></pre></div>
+<ol start="4" type="1">
+<li><p>Read the code and the comments, and check that you can understand
+what the code does.</p></li>
+<li><p>In your terminal, run
+<code>node createKeyBinding.js</code>.</p></li>
+</ol>
+<p>You should see something like this in your Terminal.</p>
+<pre class="bash-#w#"><code>## Paste the following JSON block into keybindings.json
+
+,
+{
+    &quot;key&quot;: &quot;ctrl+shift+alt+X&quot;, // use your own shortcut
+    &quot;description&quot;: &quot;Runs &#39;npm run pandoc&#39; in the  Terminal&quot;,
+    &quot;command&quot;: &quot;workbench.action.terminal.sendSequence&quot;,
+    &quot;args&quot;: {
+        &quot;text&quot;: &quot;\u006E\u0070\u006D\u0020\u0072\u0075\u006E\u0020\u0070\u0061\u006E\u0064\u006F\u0063\u000A&quot;
+    }
+}</code></pre>
+<ol start="6" type="1">
+<li>Compare this output with the JSON block that you used for
+<code>npm run pandoc</code> in the <code>keybindings.json</code> file…
+except for the <code>p</code> that I used for the keyboard shortcut. Now
+you know where it came from.</li>
+</ol>
+<h2 id="create-your-own-keybinding">Create your own keybinding</h2>
+<p>If you find that your are running the same command in the Terminal
+very often, you can use this script to generate the JSON block that you
+need to add to your <code>keybindings.json</code> file.</p>
+<p>For example:</p>
+<ol type="1">
+<li>Run the command
+<code>node createKeyBinding.js echo Keybindings are cool!</code></li>
+</ol>
+<p>Here’s what you should see in the Terminal:</p>
+<pre class="bash-#w"><code>&lt;b&gt;node createKeyBinding.js echo Keybindings are cool!&lt;/b&gt;
+### Paste the following JSON block into keybindings.json
+
+,
+{
+    &quot;key&quot;: &quot;ctrl+shift+alt+X&quot;, // use your own shortcut
+    &quot;description&quot;: &quot;Runs \&#39;echo Keybindings are cool!&#39;\ in the  Terminal&quot;,
+    &quot;command&quot;: &quot;workbench.action.terminal.sendSequence&quot;,
+    &quot;args&quot;: {
+        &quot;text&quot;: &quot;\u0065\u0063\u0068\u006F\u0020\u004B\u0065\u0079\u0062\u0069\u006E\u0064\u0069\u006E\u0067\u0073\u0020\u0061\u0072\u0065\u0020\u0063\u006F\u006F\u006C\u0021\u000A&quot;
+    }
+}</code></pre>
+<p>Now you can:</p>
+<ol start="2" type="1">
+<li>Copy this JSON block and paste it into your
+<code>keybindings.json</code> file</li>
+<li>Customize the shortcut that you want to use</li>
+<li>Save your <code>keybindings.json</code> file</li>
+<li>Press your chosen shortcut combination</li>
+<li>Check the output in your Terminal. Does it look like this?</li>
+</ol>
+<pre class="bash-#w"><code>&lt;b&gt;echo Keybindings are cool!&lt;/b&gt;
+Keybindings are cool!</code></pre>
+<p>Agreed, this is not a very useful command, so you can delete it after
+you’ve finished playing with it. In the future, though, you can find
+your <code>createKeyBinding.js</code> file in the place where you keep
+stuff that might be useful later, and use it to make repetitive tasks
+easier.</p>
+<blockquote>
+<p>It’s time to get back to converting Markdown and YAML to HTML.</p>
+</blockquote>
+</section>
+<section id="multiple-pages" data-item="Multiple Pages">
+<h2>
+Multiple Pages
+</h2>
+<p>If you are anything like me, you like to use a separate Markdown
+document for each section in your tutorial. Personally, I want to create
+a new <code>&lt;section&gt;</code> in my HTML file for each document
+that I create in Markdown. I also like to use the
+<code>&lt;aside&gt;</code> element for additional information that
+readers can skip if they are in a hurry.</p>
+<p>This means treating three issues:</p>
+<ol type="1">
+<li>Getting pandoc to merge multiple MD documents into the same HTML
+output file</li>
+<li>Getting pandoc to wrap the HTML output from each MD document in a
+<code>&lt;section&gt;&lt;/section&gt;</code> element, even though
+regular Markdown does not have the concept of sections.</li>
+<li>Creating <code>&lt;aside&gt;&lt;/aside&gt;</code> elements,
+hopefully in a similar way.</li>
+</ol>
+<p>Merging multiple MD documents is the easiest, so you can start with
+that.</p>
+<ol type="1">
+<li>Create a new file in your <code>Workflow/</code> directory, and call
+it <code>another.md</code></li>
+<li>Give it a YAML block with its own values for <code>title</code> and
+<code>subtitle</code>, and some text of its own, as shown in File FAK
+below</li>
+</ol>
+<div class="sourceCode" id="cb67"><pre
+class="sourceCode md"><code class="sourceCode markdown"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> Another Document</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> Who goes first?</span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="an">new:</span><span class="co"> new value for a new</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a><span class="co">...</span></span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>another.md has a \$new\$ variable</span>
+<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># \$title\$</span></span>
+<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## \$subtitle\$</span></span>
+<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a>Pandoc can merge multiple markdown files to the same HTML page.</span></code></pre></div>
+<p>File FAK.</p>
+<ol type="1">
+<li>In your <code>package.json</code> file, change your
+<code>"pandoc"</code> script to use <code>*.md</code> instead of
+<code>input.md</code> as the Markdown source.</li>
+</ol>
+<pre class="bash-#w"><code>&lt;i&gt;{
+  &quot;scripts&quot;: {
+    &quot;pandoc&quot;: &quot;pandoc -o index.html --filter filter.js --template=template.html &lt;/i&gt;&lt;b&gt;*.md&lt;/b&gt;&lt;i&gt;&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;pandoc-filter&quot;: &quot;^2.2.0&quot;
+  }
+}&lt;/i&gt;</code></pre>
+<p>This will allow you to see how the variables in the YAML blocks are
+applied both in the “template” part of the output file, and in the
+“markdown” part.</p>
+<ol start="4" type="1">
+<li>Press your new keyboard shortcut for <code>npm run pandoc</code>.
+(In the future, I’ll just write “run <code>pandoc</code>”, and you’ll
+know to use your keyboard shortcut.)</li>
+<li>Look at the HTML that pandoc generates for you in the
+<code>index.html</code> file:</li>
+</ol>
+<div class="sourceCode" id="cb69"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;en&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a><span class="ot">    name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span></span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a><span class="ot">    content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span></span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a><span class="ot">  </span><span class="dt">&gt;</span></span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>First Steps Complete<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>another.md has a new value for a new variable<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;title&quot;</span><span class="dt">&gt;</span>First Steps Complete<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;subtitle&quot;</span><span class="dt">&gt;</span>Success!<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Pandoc can merge multiple markdown files to the same HTML page.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;title-1&quot;</span><span class="dt">&gt;</span>First Steps Complete<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb69-17"><a href="#cb69-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;subtitle-1&quot;</span><span class="dt">&gt;</span>Success!<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb69-18"><a href="#cb69-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Use pandoc to convert this markdown file to HTML.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb69-19"><a href="#cb69-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;&quot;</span><span class="dt">&gt;</span>A link which does nothing<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb69-20"><a href="#cb69-20" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb69-21"><a href="#cb69-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Is this what you expected? Do you notice the following points:</p>
+<ul>
+<li>The value used for <code>$title$</code> in
+<code>&lt;title&gt;First Steps Complete&lt;/title&gt;</code> <em>was
+taken from the <code>input.md</code></em> file.</li>
+<li>The converted contents of both <code>another.md</code> and
+<code>input.md</code> have been added to <code>index.html</code>.</li>
+<li>The <code>another.md</code> file was processed first.</li>
+<li>The value for the <code>new</code> variable from
+<code>another.md</code> has been correctly substituted.</li>
+<li>The values for both <code>$title$</code> and <code>$subtitle$</code>
+in <code>another.md</code> were <em>taken from the <code>input.md</code>
+file</em></li>
+<li>The <code>input.md</code> file was processed second, and all its
+values are the same as they were before.</li>
+</ul>
+<h2 id="the-same-variables-name-cannot-have-two-values">The same <span
+class="math inline"><em>v</em><em>a</em><em>r</em><em>i</em><em>a</em><em>b</em><em>l</em><em>e</em><em>s</em></span>
+name cannot have two values</h2>
+<p>From this, you can see that when the same YAML key is used with
+different values, only <em>one</em> of those values is used. Another
+values for the same key will be discarded.</p>
+<p>In this case, on my computer, the values from the second file that
+was processed overwrote the values from the first Markdown file. In the
+official pandoc documentation, the reverse situation is described.
+Perhaps this is an issue with the JavaScript port of
+<code>pandoc-filter</code>.</p>
+<p>In any case, the lesson to be learned is that data will be lost if
+you use the same variable names with different values in different
+source files.</p>
+<h2 id="a-wild-card-to-select-all-markdown-files">A wild card to select
+all Markdown files</h2>
+<p>The <code>*</code> asterisk in the argument that indicates the name
+of the source Markdown file is a <em>wild card</em>. The name
+<code>*.md</code> will match all files whose names have the
+<code>.md</code> extension.</p>
+<p>The files were processed in alphabetical order. If you want them to
+be processed in a specific order, you can prefix their names with
+numbers. For example:</p>
+<ol type="1">
+<li>Rename <code>input.md</code> to <code>01-input.md</code></li>
+<li>Rename <code>another.md</code> to <code>02-another.md</code></li>
+</ol>
+<blockquote>
+<p>Note that I have used zeroes to pad the numbers. Files will be sorted
+alphabetically, and <em>alphabetically</em> <code>11</code> comes after
+<code>1</code> and <em>before</em> <code>2</code>. By using
+zero-padding, I can be sure that the files whose names begin with
+<code>01</code>, <code>02</code> and <code>11</code> will be treated in
+the order I want them to.</p>
+</blockquote>
+<ol start="3" type="1">
+<li>Run <code>pandoc</code></li>
+<li>Look at the HTML that pandoc generates for you in the
+<code>index.html</code> file:</li>
+</ol>
+<div class="sourceCode" id="cb70"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;en&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a><span class="ot">    name</span><span class="op">=</span><span class="st">&quot;viewport&quot;</span></span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a><span class="ot">    content</span><span class="op">=</span><span class="st">&quot;width=device-width, initial-scale=1.0&quot;</span></span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="ot">  </span><span class="dt">&gt;</span></span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Another Document<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb70-12"><a href="#cb70-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;title&quot;</span><span class="dt">&gt;</span>Another Document<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb70-13"><a href="#cb70-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;subtitle&quot;</span><span class="dt">&gt;</span>Who goes first?<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb70-14"><a href="#cb70-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Use pandoc to convert this markdown file to HTML.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb70-15"><a href="#cb70-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;&quot;</span><span class="dt">&gt;</span>A link which does nothing<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb70-16"><a href="#cb70-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>another.md has a new value for a variable<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb70-17"><a href="#cb70-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;title-1&quot;</span><span class="dt">&gt;</span>Another Document<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb70-18"><a href="#cb70-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;subtitle-1&quot;</span><span class="dt">&gt;</span>Who goes first?<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb70-19"><a href="#cb70-19" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Pandoc can merge multiple markdown files to the same HTML page.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb70-20"><a href="#cb70-20" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb70-21"><a href="#cb70-21" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>This time the <code>01-input.md</code> file was processed first, and
+the variables from the YAML block in <code>02-another.md</code>
+overwrote the values from <code>01-input.md</code>.</p>
+<p>It’s clear that it would be safest to use a YAML block only in one
+Markdown file.</p>
+<blockquote>
+<p>Now, what’s the best way to create distinct sections in the HTML
+file, corresponding to the content of the different source Markdown
+documents?</p>
+</blockquote>
+</section>
+<section id="html" data-item="HTML in Markdown">
+<h2>
+HTML in Markdown
+</h2>
+<p>Guess what? Markdown allows you to include HTML elements, and pandoc
+will pass them through the conversion process unchanged.</p>
+<p>From the <a
+href="https://pandoc.org/chunkedhtml-demo/8.14-raw-html.html">pandoc
+documentation</a>:</p>
+<blockquote>
+<p>Markdown allows you to insert raw HTML … anywhere in a document…</p>
+<p>The raw HTML is passed through unchanged…</p>
+</blockquote>
+<p>I want each Markdown document to be a separate
+<code>&lt;section&gt;</code> in the final HTML. I want each section to
+follow the same template.</p>
+<pre class="html-#"><code>&lt;section
+  id=&quot;section-id&quot;
+  data-item=&quot;Title for Menu&quot;
+&gt;
+&lt;h2&gt;Title for Page&lt;/h2&gt;
+
+Some content
+
+&lt;/section&gt;</code></pre>
+<p>The <code>template.html</code> that I use automatically generates a
+menu at the left of the page, using data from the section’s attributes.
+See: that’s how this tutorial that you are reading now works. if the
+viewport is wide enough, the menu will always be visible, if not, it
+will slide out of the way and leave a hamburger icon so you can show it
+again any time you want. Clicking on any menu item will show you the
+associated section, as if it were a separate page.</p>
+<blockquote>
+<h2 id="pandocs-custom-markdown">Pandoc’s custom markdown</h2>
+<p>Pandoc provides custom markdown that can produce a similar
+template.</p>
+<p>Pandoc Markdown</p>
+<div class="sourceCode" id="cb72"><pre
+class="sourceCode md"><code class="sourceCode markdown"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>::: {.section #section-id data-item=&quot;Title for Menu&quot;}</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Title for Page</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>Some content</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
+<p>HTML output</p>
+<div class="sourceCode" id="cb73"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">section</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;section-id&quot;</span><span class="ot"> data-item</span><span class="op">=</span><span class="st">&quot;Title for Menu&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;title-for-page&quot;</span><span class="dt">&gt;</span>Title for Page<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Some content<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>Notice, however, that pandoc has added an
+<code>id="title-for-page"</code> to the <code>&lt;h2&gt;</code> element.
+Each <code>id</code> attribute in a page must be unique, so the
+automatic creation of this <code>id</code> that you did not ask for may
+lead to subtle problems. Not only that, but if the <code>id</code> that
+you choose is identical to that which would have been generated for the
+<code>&lt;h2&gt;</code> header, then _the <code>&lt;h2&gt;</code> header
+does not get an <code>id</code> of its own.</p>
+<p>There are other reasons for not using pandoc’s custom markdown for
+sections, which I describe below.</p>
+</blockquote>
+<blockquote>
+<p><em>“Now wait a minute!”</em> I hear you say. “I thought the whole
+point of this tutorial was to work in Markdown, and avoid writing any
+HTML.</p>
+<p>Yes. You are right. I’m going to <em>use</em> HTML, but I’m going to
+get VS Code to write it for me. That’s what I’ll show you next.</p>
+</blockquote>
+</section>
+<!-- 'Using Snippets -->
+<section id="using-snippets" data-item="Using Snippets">
+<h2>
+Using VS Code Snippets
+</h2>
+<p>I don’t want to type custom HTML in my Markdown document. I
+specifically chose to use Markdown so that I would have less to
+type.</p>
+<p>VS Code provides a powerful set of code completion tools called <a
+href="https://code.visualstudio.com/docs/editor/userdefinedsnippets">snippets</a>.
+As you are typing in a document, VS Code will propose auto-completion
+suggestions. If you choose one by pressing the <code>Tab</code> or
+<code>Enter</code> key, VS Code will insert a chunk of predefined text,
+and allow you to customize it in predefined places.</p>
+<p>Here’s a simple snippet that I use to create the <code>section</code>
+template that I showed above.</p>
+<pre class="json-#"><code>    &quot;section&quot;: {
+        &quot;prefix&quot;: &quot;section&quot;,
+        &quot;body&quot;: [
+            &quot;&lt;section\n  id=\&quot;${1:section-id}\&quot;\n  data-item=\&quot;${2:Title for Menu}\&quot;\n&gt;\n  &lt;h2&gt;${3:$2}&lt;/h2&gt;\n  $0\n&lt;/section&gt;&quot;
+        ],
+        &quot;description&quot;: &quot;Customize id, data-item and header. Add content.&quot;
+    }</code></pre>
+<p>When I start typing the <code>prefix</code> (<code>section</code> in
+this case), VS Code opens a pop-up which allows me to select this
+snippet.</p>
+<figure>
+<img src="images/sectionSnippet.webp" alt="Section Snippet" />
+<figcaption aria-hidden="true">Section Snippet</figcaption>
+</figure>
+<p>Notice that I only had to type the first two letters to make this
+appear. When I press the <code>Tab</code> key, this whole chunk of HTML
+is inserted in my Markdown page.</p>
+<figure>
+<img src="images/tabStops.webp" alt="Tab Stops" />
+<figcaption aria-hidden="true">Tab Stops</figcaption>
+</figure>
+<pre class="html-#"><code>&lt;section
+  id=&quot;section-id&quot;
+  data-item=&quot;Title for Menu&quot;
+&gt;
+  &lt;h2&gt;Title for Menu&lt;/h2&gt;
+  
+&lt;/section&gt;</code></pre>
+<p>Even better! If you look closely at the image above you will see that
+the text <code>section-id</code> is selected. That’s because this
+snippet contains several <em>tabstops</em>: editable zones where I can
+type the text I want instead of the placeholders.</p>
+<ul>
+<li><code>${1:section-id}</code></li>
+<li><code>${2:Title for Menu}</code></li>
+<li><code>${3:$2}</code></li>
+</ul>
+<p>Better yet, the tabstops for the <code>data-item</code> and the
+<code>&lt;h2&gt;</code> text are linked.</p>
+<p>When I press the <code>Tab</code> key, the selection jumps to the
+next tab stop. When I change the text for the <code>data-item</code>
+(the text which will appear in the menu), the text for the
+<code>&lt;h2&gt;</code> element changes at the same time.</p>
+<figure>
+<img src="images/MultipleCursors.webp" alt="Multiple Cursors" />
+<figcaption aria-hidden="true">Multiple Cursors</figcaption>
+</figure>
+<p>I can then press the <code>Tab</code> key again, and tweak the the
+text for the <code>&lt;h2&gt;</code> element, if I want it to be more
+detailed than the entry in the menu.</p>
+<blockquote>
+<p>I imagine that you want to try this out for yourself. However, typing
+<code>section</code> into a Markdown document is unlikely to show any
+pop-up selector. You’ll have to: * Activate
+<code>quickSuggestions</code> for Markdown in VS Code * Add a JSON
+block, like the one above, to your <code>markdown.json</code> settings
+file.</p>
+</blockquote>
+</section>
+<section id="activating-snippets" data-item="Activating Snippets">
+<h2>
+Activating Markdown Snippets
+</h2>
+<p>By default, VS Code snippets are disabled in Markdown files. You’ll
+probably need to activate them before you can continue.</p>
+<ol type="1">
+<li>Open the Command Palette (<code>Ctrl-Shift-P</code> or
+<code>F1</code>, remember?)</li>
+<li>Start typing <code>user settings</code>, until you see the option
+for <code>Preferences: Open User Settings (JSON)</code></li>
+<li>If this is the first item, you can press Enter to select it.
+Otherwise you can use the arrow buttons on your keyboard to move the
+selection highlight before you press enter. (Or you can use your mouse…
+if you think that that will be quicker.)</li>
+</ol>
+<figure>
+<img src="images/UserSettings.webp" alt="User Settings" />
+<figcaption aria-hidden="true">User Settings</figcaption>
+</figure>
+<ol start="4" type="1">
+<li>The <code>settings.json</code> file should open. Use the Find dialog
+to search for <code>markdown</code>. (Press <code>Ctrl-F</code>, for
+“Find” if you don’t see the Find dialog.)</li>
+</ol>
+<figure>
+<img src="images/quickSuggestions.webp" alt="quickSuggestions" />
+<figcaption aria-hidden="true">quickSuggestions</figcaption>
+</figure>
+<ol start="5" type="1">
+<li><p>You should see a JSON block with an entry for
+<code>"editor.quickSuggestions"</code>.</p>
+<pre class="json-#"><code>&lt;i&gt;&quot;[markdown]&quot;: {
+   &lt;s&gt;&lt;!-- Some lines skipped --&gt;&lt;/s&gt;
+   &lt;u&gt;&quot;editor.quickSuggestions&quot;:&lt;/u&gt; {
+     &quot;other&quot;: &lt;/i&gt;&lt;b&gt;&quot;on&quot;&lt;/b&gt;&lt;i&gt;
+  }
+}&lt;/i&gt;</code></pre></li>
+<li><p>Set the value of <code>"other"</code> to
+<code>"on"</code>.</p></li>
+</ol>
+<blockquote>
+<p>Now you can add some custom snippets for Markdown.</p>
+</blockquote>
+</section>
+<section id="section-id" data-item="Title for Menu">
+<a href="section-id">
+<h2>
+Title for Menu
+</h2>
+<p></a></p>
+</section>
+<!-- 'Snippet Transforms -->
+<section id="snippet-transforms" data-item="Snippet Transforms">
+<h2>
+Snippet Transforms
+</h2>
+No content
+</section>
+<!-- 'Types of content -->
+<section id="types-of-content" data-item="Types Of Content">
+<h2>
+Different Types Of Content
+</h2>
+<h2 id="snippets-for-content">Snippets for content</h2>
+<p>The <em>content</em> of the page will contain various items:</p>
+<ul>
+<li>Ordinary paragraphs</li>
+<li>Ordinary bulleted lists, like this one</li>
+<li>Code listings, with syntax highlighting that makes it clear where
+new code has been added</li>
+<li>Extracts showing input and output in the Terminal</li>
+<li>Images with captions</li>
+<li>Quotes from official documentation and other sites</li>
+<li>Colour-coded asides for tips, warnings and points to note</li>
+<li>Collapsed sub-sections that you can open to go deeper into a topic
+if you have time.</li>
+</ul>
+</section>
+<section id="goals" data-item="Goals">
+<h2>
+Goals
+</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />Single HTML from multiple
+markdown pages</label></li>
+<li><label><input type="checkbox" checked="" />Keyboard short cut to run
+conversion</label></li>
+<li><label><input type="checkbox" checked="" />Use HTML
+template</label></li>
+</ul>
+<ol start="4" type="1">
+<li>Templates for Intro and Conclusion pages</li>
+<li>Each markdown document is a <code>&lt;section&gt;</code></li>
+<li>Insert data-item for each section</li>
+<li>Use links inside <code>&lt;hX&gt;</code> tags, with popout
+<code>::before</code> hash</li>
+<li>Create VS Code snippets for common structures</li>
+<li>Create keybinding to <code>run pandoc</code></li>
+<li>Create ASCII-&gt;UnicodeEscape converter</li>
+</ol>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />Use variables from YAML
+block to replace <code>$dollar$</code> keys</label>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />In Template</label></li>
+<li><label><input type="checkbox" checked="" />In Markdown</label></li>
+<li><label><input type="checkbox" checked="" />In Links</label></li>
+</ul></li>
+</ul>
+<ol start="11" type="1">
+<li>Create <code>&lt;aside&gt;</code> elements in various flavours
+<ul>
+<li><em>none</em> = note (green)</li>
+<li>tip (gold)</li>
+<li>vscode (blue)</li>
+<li>question (purple)</li>
+<li>warn (brown)</li>
+<li>alert (red)</li>
+</ul></li>
+<li>Nested iframes with commonly re-used asides</li>
+<li>Syntax highlighting and line numbering</li>
+<li>Lowlighting of existing code / highlighting of new code</li>
+<li>Highlighting of console commands</li>
+<li>Numbering of images, code listings and console</li>
+<li>Collapsible menu</li>
+<li><h2 id="footer-with-prev-and-next-buttons">Footer with Prev and Next
+buttons</h2></li>
+<li>Integration into a Tutorial platform</li>
+<li>Jira-like task manager</li>
+</ol>
+</section>
+<section id="intro" data-item="Introduction">
+<h2>
+Introduction
+</h2>
+<p>The goal of this tutorial is to create a workflow for publishing your
+own tutorials online. This workflow will allow you to:</p>
+<ol type="1">
+<li>Write the content of your tutorials in Markdown (MD) using
+Microsoft’s free <a href="https://code.visualstudio.com/">Visual Studio
+Code</a> (VS Code)</li>
+<li>Use VS Code snippets to insert commonly-used customizable chunks of
+Markdown</li>
+<li>Write your tutorial in separate sections, with one MD document
+containing each section</li>
+<li>Convert your set of MD documents to a single HTML page <a
+href="https://www.youtube.com/watch?v=_gz9Vj8TMCc">using pandoc</a></li>
+<li>Use a template for the HTML page which contains:
+<ul>
+<li><code>$variables$</code> for the title, the publication date, the
+associated GitHub repository and other details</li>
+<li>Links to CSS files</li>
+<li>A link to a JavaScript file that will automatically generate a
+collapsible menu for all the sections</li>
+<li>Links to CSS and JavaScript files created by <a
+href="https://prismjs.com/">Prism</a>, in order to display code listings
+with highlighted syntax</li>
+</ul></li>
+<li>Update the HTML version of your tutorial, with a simple keyboard
+shortcut, after you make changes to the MD text</li>
+<li>View the updated HTML version live in multiple browsers</li>
+</ol>
+<h2 id="why-pandoc">Why pandoc?</h2>
+<p>I use <a href="https://pandoc.org/">pandoc</a> to convert files from
+Markdown to HTML. There are two important reasons for this: * pandoc can
+convert multiple Markdown files into a single HTML file * pandoc allows
+you to customize the conversion process</p>
+<h2 id="customization-in-javascript">Customization in JavaScript</h2>
+<p>The official documentation for pandoc assumes that you are familiar
+with programming languages such as Haskell, Lua or Python. The tutorials
+that I want to publish are about web development with the MERN stack.
+This means that the programming language I am most proficient in is
+JavaScript. The published tutorial uses JavaScript to make it
+user-friendly.</p>
+<p>For this reason, I have chosen to use JavaScript in the
+tutorial-publishing workflow. I understand that you may be writing
+tutorials for JavaScript-free situations, so I do not assume that you
+are familiar with JavaScript. I will take time to explain how it works.
+I do assume, however, that you have experience with other programming
+languages, and with HTML and CSS.</p>
+This tutorial will be very meta: a tutorial about writing and publishing
+this very tutorial. Hold on tight!
 </section>
 
 <div class="spacer"></div>
@@ -258,14 +2063,14 @@ y2="80"
 
 <div id="repo">
 <a
-href="https://github.com/MERNCraft/boilerplate-tutorial/issues/new"
+href="https://github.com/MERNCraft//issues/new"
 >
 Feedback
 </a>
 
 <a
 class="repo"
-href="https://github.com/MERNCraft/boilerplate-tutorial"
+href="https://github.com/MERNCraft/"
 >
 <img src="../shared/svg/github.svg" alt="github logo">
 <span>GitHub repository</span>
