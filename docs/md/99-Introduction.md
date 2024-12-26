@@ -1,3 +1,11 @@
+---
+title: Building HTM-Elves from Scratch
+subtitle: Customizing your own tutorial look and feel
+month: December 2024
+organization: HTM-Elves
+repo: Building-From-Scratch
+---
+
 <section
   id="intro"
   data-item="Introduction"

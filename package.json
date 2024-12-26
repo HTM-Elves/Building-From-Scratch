@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "pandoc": "pandoc -o docs/index.html --template=shared/template.html docs/md/*.md",
-    "watch": "node shared/watch.js Building-From-Scratch"
+    "pandoc": "pandoc -o docs/index.html --template=public/template.html docs/md/*.md",
+    "watch": "node public/watch.js 03-Building-From-Scratch"
   }
 }

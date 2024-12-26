@@ -112,7 +112,7 @@ pandoc -o index.html --filter filter.js input.md
 ```
 Congratulations! Pandoc has used the value of both YAML variables to replace their dollar-wrapped names. You have successfully created your first JavaScript filter for pandoc!
 
-> You've made pandoc work with one simple Markdown file. To create a multi-part tutorial, you'll need to discover how to make pandoc produce a single HTML file from multiple Markdown files, with a shared HTML template.
+> You've made pandoc work with one simple Markdown file. To create a multi-part tutorial, you'll need to discover how to make pandoc produce a single HTML file from multiple Markdown files, with a public HTML template.
 >
 > But this tutorial is about _workflow_ as much as it is about writing tutorials. You're going to be performing the same actions repetitively, and the more you write, the more time you can save if you first automate these actions.  
 
